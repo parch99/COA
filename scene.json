@@ -14,8 +14,19 @@
     },
     {
       "type": "model",
+      "mesh": 6,
+      "texture": 5,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [0, 5, 0],
+      "scale": [20, 1, 20]
+    },
+    {
+      "type": "model",
       "mesh": 2,
-      "texture": 2,
+      "texture": 5,
       "aabb": {
         "min": [-1, -1, -1],
         "max": [1, 1, 1]
@@ -24,7 +35,7 @@
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 5,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -32,11 +43,11 @@
       },
       "translation": [0, 1, -21],
       "rotation": [0, 0, 0],
-      "scale": [20, 2, 1]
+      "scale": [20, 3, 1]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 5,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -44,11 +55,11 @@
       },
       "translation": [0, 1, 21],
       "rotation": [0, 0, 0],
-      "scale": [20, 2, 1]
+      "scale": [20, 3, 1]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 5,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -56,11 +67,11 @@
       },
       "translation": [21, 1, 0],
       "rotation": [0, 0, 0],
-      "scale": [1, 2, 20]
+      "scale": [1, 3, 20]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 5,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -68,11 +79,11 @@
       },
       "translation": [-21, 1, 0],
       "rotation": [0, 0, 0],
-      "scale": [1, 2, 20]
+      "scale": [1, 3, 20]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -80,11 +91,11 @@
       },
       "translation": [-16, 1, 8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -92,11 +103,11 @@
       },
       "translation": [-16, 1, -8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -104,11 +115,11 @@
       },
       "translation": [16, 1, 8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -116,11 +127,11 @@
       },
       "translation": [16, 1, -8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 7,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -128,7 +139,19 @@
       },
       "translation": [0, 1, -16],
       "rotation": [0, 0, 0],
-      "scale": [14, 2, 0.3]
+      "scale": [14, 3, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 7,
+      "texture": 3,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [0, 1, 16],
+      "rotation": [0, 0, 0],
+      "scale": [14, 3, 0.3]
     },
     {
       "type": "model",
@@ -138,9 +161,45 @@
         "min": [-1, -1, -1],
         "max": [1, 1, 1]
       },
-      "translation": [0, 1, 16],
+      "translation": [-7.5, 1, -8],
       "rotation": [0, 0, 0],
-      "scale": [14, 2, 0.3]
+      "scale": [6.5, 3, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 3,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [7.5, 1, -8],
+      "rotation": [0, 0, 0],
+      "scale": [6.5, 3, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 3,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-7.5, 1, 8],
+      "rotation": [0, 0, 0],
+      "scale": [6.5, 3, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 3,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [7.5, 1, 8],
+      "rotation": [0, 0, 0],
+      "scale": [6.5, 3, 0.3]
     },
     {
       "type": "model",
@@ -152,7 +211,7 @@
       },
       "translation": [8.5, 1, -1],
       "rotation": [0, 0, 0],
-      "scale": [7.5, 2, 0.3]
+      "scale": [7.5, 3, 0.3]
     },
     {
       "type": "model",
@@ -164,7 +223,7 @@
       },
       "translation": [-8.5, 1, -1],
       "rotation": [0, 0, 0],
-      "scale": [7.5, 2, 0.3]
+      "scale": [7.5, 3, 0.3]
     },
     {
       "type": "model",
@@ -176,7 +235,7 @@
       },
       "translation": [8.5, 1, 1],
       "rotation": [0, 0, 0],
-      "scale": [7.5, 2, 0.3]
+      "scale": [7.5, 3, 0.3]
     },
     {
       "type": "model",
@@ -188,11 +247,11 @@
       },
       "translation": [-8.5, 1, 1],
       "rotation": [0, 0, 0],
-      "scale": [7.5, 2, 0.3]
+      "scale": [7.5, 3, 0.3]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -200,11 +259,11 @@
       },
       "translation": [-5.5, 1, 8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -212,11 +271,11 @@
       },
       "translation": [-5.5, 1, -8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -224,11 +283,11 @@
       },
       "translation": [5.5, 1, 8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
     },
     {
       "type": "model",
-      "mesh": 0,
+      "mesh": 4,
       "texture": 3,
       "aabb": {
         "min": [-1, -1, -1],
@@ -236,7 +295,155 @@
       },
       "translation": [5.5, 1, -8.5],
       "rotation": [0, 0, 0],
-      "scale": [0.3, 2, 7.5]
+      "scale": [0.3, 3, 7.5]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 6,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [0, 0, -8.5],
+      "rotation": [0, 0, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [4, 0.4, -5],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [9, 0.4, -5],
+      "scale": [0.3, 0.6, 0.3]
+    }
+    ,
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-7, 0.4, -5],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [4, 0.4, -10],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [9, 0.4, -10],
+      "scale": [0.3, 0.6, 0.3]
+    }
+    ,
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-7, 0.4, -10],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [4, 0.4, 5],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [9, 0.4, 5],
+      "scale": [0.3, 0.6, 0.3]
+    }
+    ,
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-7, 0.4, 5],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [4, 0.4, 10],
+      "scale": [0.3, 0.6, 0.3]
+    },
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [9, 0.4, 10],
+      "scale": [0.3, 0.6, 0.3]
+    }
+    ,
+    {
+      "type": "model",
+      "mesh": 8,
+      "texture": 4,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-7, 0.4, 10],
+      "scale": [0.3, 0.6, 0.3]
     }
 
   ],
@@ -244,11 +451,20 @@
     "../../common/images/crate-diffuse.png",
     "../../common/images/grass.png",
     "../../common/images/floorStone.png",
-    "../../common/images/wall_texture.png"
+    "../../common/images/WallTile.jpg",
+    "../../common/images/bibtext.jpg",
+    "../../common/images/FloorText.jpg",
+    "../../common/images/chairTex.jpg"
   ],
   "meshes": [
     "../../common/models/cube.json",
     "../../common/models/pyramid.json",
-    "../../common/models/floor.json"
+    "../../common/models/floor.json",
+    "../../common/models/chair2.json",
+    "../../common/models/cube2.json",
+    "../../common/models/cube3.json",
+    "../../common/models/cube4.json",
+    "../../common/models/wall1.json",
+    "../../common/models/bin.json"
   ]
 }
