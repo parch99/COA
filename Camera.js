@@ -2,6 +2,8 @@ import { vec3, mat4 } from './lib/gl-matrix-module.js';
 
 import { Utils } from './Utils.js';
 import { Node } from './Node.js';
+let running_and_breathing = new Audio('../../common/audio/running_and_breathing.mp3');
+let breathing_sound = new Audio('../../common/audio/breathing_sound.mp3');
 
 export class Camera extends Node {
 
@@ -33,6 +35,8 @@ export class Camera extends Node {
         // 1: add movement acceleration
         const acc = vec3.create();
         if (this.keys['KeyW']) {
+            running_and_breathing.volume = 1;
+            running_and_breathing.play();
             vec3.add(acc, acc, forward);
         }
         if (this.keys['KeyS']) {
@@ -53,7 +57,11 @@ export class Camera extends Node {
             !this.keys['KeyS'] &&
             !this.keys['KeyD'] &&
             !this.keys['KeyA'])
-        {
+        {   
+            running_and_breathing.volume = 0.5;
+            setTimeout(function() {
+                running_and_breathing.pause();
+            }, 1000);
             vec3.scale(c.velocity, c.velocity, 1 - c.friction);
         }
 

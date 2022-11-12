@@ -1,4 +1,5 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
+import { count, check } from './TImer.js'
 
 export class Physics {
 
@@ -67,7 +68,17 @@ export class Physics {
         if (!isColliding) {
             return;
         }
-
+        
+        if( b.aabb.max[0] == 0.1 ) { //coins
+            count();
+            b.translation[1] = -4;
+            b.updateMatrix();
+        }
+        if( b.aabb.max[0] == 0.4 ) { //officer
+            check();
+            b.translation[1] = -4;
+            b.updateMatrix();
+        }
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);

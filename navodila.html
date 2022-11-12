@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+            .container {
+                position: relative;
+                text-align: center;
+                color: white;
+            }
+            .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .right {
+                position: absolute;
+                top: 85%;
+                left: 85%;
+                transform: translate(-50%, -50%);
+            }
+    </style>
+
+    <title>Chicken Hunt - RGTI</title>
+    <link rel="icon" type="image/x-icon" href="../common/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../common/style.css">
+
+    <script type="text/javascript" src="../lib/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="../lib/dat.gui.min.js"></script>
+    
+</head>
+<body>
+    <div class="fullscreen">
+        <div class="fullscreen">
+            <div id = "starting_screen">
+                <img class="fullscreen" src="../common/images/CHnavodila.png">    
+                <a class="right" href="index.html"><img src="../common/images/nazaj.png" alt="Start" width="180" height="60"/></a>
+            </div>
+            <canvas></canvas>
+        </div>
+        <canvas></canvas>
+    </div>
+</body>
+</html>
