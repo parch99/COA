@@ -237,8 +237,18 @@
       "translation": [5.5, 1, -8.5],
       "rotation": [0, 0, 0],
       "scale": [0.3, 2, 7.5]
+    },
+    {
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [0.1, 1, 1]
+      },
+      "translation": [3, 1, -5]
     }
-
+    
   ],
   "textures": [
     "../../common/images/crate-diffuse.png",

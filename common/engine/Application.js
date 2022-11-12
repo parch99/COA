@@ -2,15 +2,12 @@ export class Application {
     
     constructor(canvas, glOptions) {
         this._update = this._update.bind(this);
-        console.log("in Application/engine construct");
         this.canvas = canvas;
         this._initGL(glOptions);
     }
 
     async init() {
-        console.log("in Application/engine init() before await this.start");
         await this.start();
-        console.log("in Application/engine init() after await this.start");
         requestAnimationFrame(this._update);
     }
 

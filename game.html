@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>17 - Game example - JavaScript/WebGL 2.0 Examples</title>
+    <title>Coins of Alcatraz - RGTI </title>
 
     <link rel="stylesheet" type="text/css" href="/common/style.css">
 
@@ -12,6 +12,14 @@
     <script type="module" src="17-game.js"></script>
 </head>
 <body>
+	<div class="overlay">
+        	<p><span id="timer" style="font-size:200%; font-weight:bold; font-family:Krungthep; 			color:white">1m 59s</span></p>
+        <p id="text" style="font-size:120%; font-weight:bold; font-family:Krungthep; color:white">
+            <span>Stevilo zbranih kovancev: </span>
+            <span id="counter" style="font-size:150%;">0</span><br>
+            <span>&nbsp;&nbsp;Stevilo preostalih kovancev: </span>
+            <span id="coins" style="font-size:150%;">10</span></p>
+    	</div>	
     <div class="fullscreen no-touch">
         <canvas></canvas>
     </div>

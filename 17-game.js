@@ -5,6 +5,9 @@ import { Physics } from './Physics.js';
 import { Camera } from './Camera.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
+
+import { start_timer } from './Timer.js';
+
 class App extends Application {
     
     async start() {
@@ -67,9 +70,20 @@ class App extends Application {
         }
     }
 
-}
+    play_soundtrack() {
+        const music = new Audio("../../common/audio/soundtrack.mp3");
+        music.volume = 0.1;
+        music.loop = true;
+        music.play();
+    }
 
+}
 const canvas = document.querySelector('canvas');
 const app = new App(canvas);
 await app.init();
-document.querySelector('.loader-container').remove();
+canvas.addEventListener('click', e => startTimer());    
+
+function startTimer() {
+    start_timer();
+    app.play_soundtrack();
+ }
