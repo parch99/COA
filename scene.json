@@ -460,6 +460,27 @@
         "max": [0.1, 1, 1]
       },
       "translation": [3, 1, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 9,
+      "texture": 1,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [0.1, 1, 1]
+      },
+      "translation": [-3, 1, 3]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 1,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [0.1, 1, 1]
+      },
+      "translation": [-1, 1, 1],
+      "scale": [0.3, 0.6, 0.3]
     }
     
   ],
@@ -476,11 +497,12 @@
     "../../common/models/cube.json",
     "../../common/models/pyramid.json",
     "../../common/models/floor.json",
-    "../../common/models/chair2.json",
+    "../../common/models/chair2OBJ.json",
     "../../common/models/cube2.json",
     "../../common/models/cube3.json",
     "../../common/models/cube4.json",
     "../../common/models/wall1.json",
-    "../../common/models/bin.json"
+    "../../common/models/bin.json",
+    "../../common/models/coin.json"
   ]
 }
