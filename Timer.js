@@ -42,11 +42,4 @@ export function count() {
 
 export function check() {
     counter == overall ? location.href = 'win.html' : location.href = 'loss.html';
-    /*
-    if(counter == overall) {
-        location.href = 'win.html';
-    }else{
-        location.href = 'loss.html';
-    }
-    */
 }

@@ -1,6 +1,8 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
 import { count, check } from './TImer.js'
 
+let door_open = new Audio('../../common/audio/door_open.mp3');
+let door_close = new Audio('../../common/audio/door_close.mp3');
 export class Physics {
 
     constructor(scene) {
@@ -13,7 +15,7 @@ export class Physics {
             if (node.velocity) {
                 vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
                 node.updateMatrix();
-
+                
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
                     if (node !== other) {
@@ -59,16 +61,18 @@ export class Physics {
     }
 
     resolveCollision(a, b) {
+        
         // Get global space AABBs.
         const aBox = this.getTransformedAABB(a);
         const bBox = this.getTransformedAABB(b);
-
+        
         // Check if there is collision.
         const isColliding = this.aabbIntersection(aBox, bBox);
         if (!isColliding) {
             return;
         }
         
+        this.check2(a)
         if( b.aabb.max[0] == 0.1 ) { //coins
             count();
             b.translation[1] = -4;
@@ -82,10 +86,10 @@ export class Physics {
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);
-
+        
         let minDiff = Infinity;
         let minDirection = [0, 0, 0];
-        if (diffa[0] >= 0 && diffa[0] < minDiff) {
+        if (diffa[0] >= 0 && diffa[0] < minDiff) {//ce je diffa[i] < 0 se objekta ne prekrivata
             minDiff = diffa[0];
             minDirection = [minDiff, 0, 0];
         }
@@ -97,6 +101,7 @@ export class Physics {
             minDiff = diffa[2];
             minDirection = [0, 0, minDiff];
         }
+        
         if (diffb[0] >= 0 && diffb[0] < minDiff) {
             minDiff = diffb[0];
             minDirection = [-minDiff, 0, 0];
@@ -114,4 +119,59 @@ export class Physics {
         a.updateMatrix();
     }
 
+    check2(a){
+        this.scene.traverse(b => {
+            if(b.aabb.max[0] == 0.7){
+                //console.log(b);
+                if(this.checkDistance(a,b)){
+                    door_open.volume = 1;
+                    door_open.play();
+                    b.translation[0] = -1.75;
+                    b.updateMatrix();
+                    setTimeout(function() {
+                        door_close.volume = 1;
+                        door_close.play();
+                        b.translation[0] = 0;
+                        b.updateMatrix();
+                    }, 4000);
+                };
+            }
+        });
+    }
+    checkDistance(a, b){
+        const aBox = this.getTransformedAABB(a);
+        const bBox = this.getTransformedAABB(b);
+        const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
+        const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);
+        let minDiff = Infinity;
+        
+        if (diffa[0] >= 0 && diffa[0] < minDiff) {//ce je diffa[i] < 0 se objekta ne prekrivata
+            minDiff = diffa[0];
+        }
+        if (diffa[1] >= 0 && diffa[1] < minDiff) {
+            minDiff = diffa[1];
+        }
+        if (diffa[2] >= 0 && diffa[2] < minDiff) {
+            minDiff = diffa[2];
+        }
+        if (diffb[0] >= 0 && diffb[0] < minDiff) {
+            minDiff = diffb[0];
+        }
+        if (diffb[1] >= 0 && diffb[1] < minDiff) {
+            minDiff = diffb[1];
+        }
+        if (diffb[2] >= 0 && diffb[2] < minDiff) {
+            minDiff = diffb[2];
+        }
+        console.log("diffa", diffa);
+        console.log("diffb", diffb);
+        if(diffa[0] <= 3 && diffa[1] <= 3 && diffa[2] <= 3
+            && diffb[0] <= 3 && diffb[1] <= 4 && diffb[2] <= 3){
+            console.log(diffa);
+            return true;
+        }
+        return false;
+    }
 }
+
+
