@@ -1,7 +1,7 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
-
 import { Utils } from './Utils.js';
 import { Node } from './Node.js';
+import { Physics } from './Physics.js'
 let running_and_breathing = new Audio('../../common/audio/running_and_breathing.mp3');
 let breathing_sound = new Audio('../../common/audio/breathing_sound.mp3');
 
@@ -48,7 +48,10 @@ export class Camera extends Node {
         if (this.keys['KeyA']) {
             vec3.sub(acc, acc, right);
         }
-
+        if (this.keys['KeyE']) {
+            //p.check2(this);
+        }
+        
         // 2: update velocity
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
 
@@ -127,7 +130,7 @@ Camera.defaults = {
     far              : 100,
     velocity         : [0, 0, 0],
     pointerSensitivity : 0.002,
-    maxSpeed         : 3,
+    maxSpeed         : 3.5,
     friction         : 0.2,
-    acceleration     : 20
+    acceleration     : 25
 };
