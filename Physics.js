@@ -185,8 +185,6 @@ export class Physics {
                 node.translation[2] = z;
                 node.translation[1] = 1;
                 node.updateMatrix();
-                
-                
                 this.scene.traverse(other => {
                     if (node !== other) {
                         this.resolveCollision(node, other);
