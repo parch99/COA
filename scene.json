@@ -561,7 +561,290 @@
       },
       "translation": [0, 1, 0],
       "scale": [0.33, 0.33, 0.33]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, 2],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, -2],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, 9],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, -9],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-10, 0, 2],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-10, 0, -2],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-10, 0, 9],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-10, 0, -9],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [11, 0, 2],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [11, 0, -2],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [11, 0, 9],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 11,
+      "texture": 10,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [11, 0, -9],
+      "rotation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, -6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-1, 0.4, -12],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-11, 0, -6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-11, 0.4, -13],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [13, 0, -6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [11, 0.4, -13],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-3, 0, 6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-1, 0.4, 12],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [-11, 0, 6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [-11, 0.4, 13],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      },
+      "translation": [13, 0, 6],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.5, -0.5, -0.5],
+        "max": [0.5, 0.5, 0.5]
+      },
+      "translation": [11, 0.4, 13],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
     }
+    
     
     
   ],
@@ -575,20 +858,26 @@
     "../../common/images/chairTex.jpg",
     "../../common/images/oldtext.jpg",
     "../../common/images/goldTex.jpeg",
-    "../../common/images/ceiling2.jpg"
+    "../../common/images/ceiling2.jpg",
+    "../../common/images/toil3.jpg",
+    "../../common/images/bedmet3.jpg",
+    "../../common/images/bedf1.jpg"
     
   ],
   "meshes": [
     "../../common/models/cube.json",
     "../../common/models/pyramid.json",
     "../../common/models/floor.json",
-    "../../common/models/chair2OBJ.json",
+    "../../common/models/floor.json",
     "../../common/models/cube2.json",
     "../../common/models/cube3.json",
     "../../common/models/cube4.json",
     "../../common/models/wall1.json",
     "../../common/models/bin.json",
     "../../common/models/coinOBJ.json",
-    "../../common/models/door.json"
+    "../../common/models/door.json",
+    "../../common/models/toiletOBJ3.json",
+    "../../common/models/bedOBJ.json",
+    "../../common/models/bedfOBJ.json"
   ]
 }

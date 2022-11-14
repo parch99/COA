@@ -8,7 +8,7 @@ export function start_timer() {
         return;
     } else {
         active = true;
-        var countDownDate = new Date(Date.now() + (2 * 60 * 1000));
+        var countDownDate = new Date(Date.now() + (5 * 60 * 1000));
 
         var x = setInterval(function() {
             var now = new Date(Date.now());
