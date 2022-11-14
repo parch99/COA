@@ -7,6 +7,7 @@ export class Physics {
 
     constructor(scene) {
         this.scene = scene;
+        this.randomizeCoins();
     }
 
     update(dt) {
@@ -20,6 +21,7 @@ export class Physics {
                 this.scene.traverse(other => {
                     if (node !== other) {
                         this.resolveCollision(node, other);
+                        this.check2(node);
                     }
                 });
             }
@@ -72,7 +74,7 @@ export class Physics {
             return;
         }
         
-        this.check2(a)
+        
         if( b.aabb.max[0] == 0.1 ) { //coins
             count();
             b.translation[1] = -4;
@@ -83,6 +85,7 @@ export class Physics {
             b.translation[1] = -4;
             b.updateMatrix();
         }
+
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);
@@ -122,14 +125,13 @@ export class Physics {
     check2(a){
         this.scene.traverse(b => {
             if(b.aabb.max[0] == 0.7){
-                //console.log(b);
                 if(this.checkDistance(a,b)){
-                    door_open.volume = 1;
+                    door_open.volume = 0.5;
                     door_open.play();
                     b.translation[0] = -1.75;
                     b.updateMatrix();
                     setTimeout(function() {
-                        door_close.volume = 1;
+                        door_close.volume = 0.3;
                         door_close.play();
                         b.translation[0] = 0;
                         b.updateMatrix();
@@ -163,14 +165,39 @@ export class Physics {
         if (diffb[2] >= 0 && diffb[2] < minDiff) {
             minDiff = diffb[2];
         }
-        console.log("diffa", diffa);
-        console.log("diffb", diffb);
         if(diffa[0] <= 3 && diffa[1] <= 3 && diffa[2] <= 3
             && diffb[0] <= 3 && diffb[1] <= 4 && diffb[2] <= 3){
-            console.log(diffa);
             return true;
         }
         return false;
+    }
+
+    randomizeCoins(){
+        this.scene.traverse(node => {
+            if(node.aabb.max[0] == 0.1){
+                let x = Math.floor(Math.random() * 18);
+                let z = Math.floor(Math.random() * 18);
+                let a = Math.floor(Math.random()*2);
+                let b = Math.floor(Math.random()*2);
+                if(a < 0.5) z = -z;
+                if (b > 0.5) x = -x;
+                node.translation[0] = x;
+                node.translation[2] = z;
+                node.translation[1] = 1;
+                node.updateMatrix();
+                
+                
+                this.scene.traverse(other => {
+                    if (node !== other) {
+                        this.resolveCollision(node, other);
+                    }
+                });
+
+                node.translation[1] = 1;
+                node.updateMatrix();
+            }
+            
+        });
     }
 }
 

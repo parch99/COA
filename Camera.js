@@ -13,10 +13,10 @@ export class Camera extends Node {
 
         this.projection = mat4.create();
         this.updateProjection();
-
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
+        //this.translation[1] = 10;
         this.keys = {};
     }
 
@@ -49,7 +49,7 @@ export class Camera extends Node {
             vec3.sub(acc, acc, right);
         }
         if (this.keys['KeyE']) {
-            //p.check2(this);
+            //this.translation[1] = 2;
         }
         
         // 2: update velocity
