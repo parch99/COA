@@ -35,7 +35,7 @@ a.back {
     background: #fff;
     border: 1px solid #ccc;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: line-through;
     color: #000;
 }
 

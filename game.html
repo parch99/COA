@@ -10,14 +10,25 @@
 
     <script type="text/javascript" src="/lib/gl-matrix-min.js"></script>
     <script type="module" src="17-game.js"></script>
+    <style>
+        p {font-family: Impact, Charcoal, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            font-size: 20px;
+            margin-left: 80px;
+            letter-spacing: 11px;
+            color: rgb(226, 226, 226);
+            text-shadow: rgb(0, 0, 0) -3px 1px 7px;}
+
+    </style>
 </head>
 <body>
 	<div class="overlay">
-        	<p><span id="timer" style="font-size:200%; font-weight:bold; font-family:Krungthep; 			color:white">1m 59s</span></p>
-        <p id="text" style="font-size:120%; font-weight:bold; font-family:Krungthep; color:white">
-            <span>Stevilo zbranih kovancev: </span>
+        	<p><span id="timer" style="font-size:200%;">5m</span></p>
+        <p id="text">
+            <span >COINS: </span>
             <span id="counter" style="font-size:150%;">0</span><br>
-            <span>&nbsp;&nbsp;Stevilo preostalih kovancev: </span>
+            <span>COINS LEFT: </span>
             <span id="coins" style="font-size:150%;">10</span></p>
     	</div>	
     <div class="fullscreen no-touch">

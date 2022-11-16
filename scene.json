@@ -454,6 +454,17 @@
     },
     {
       "type": "model",
+      "mesh": 10,
+      "texture": 7,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [0.7, 1, 1]
+      },
+      "scale": [1, 2.5, 0.25],
+      "translation": [0, 1, -8]
+    },
+    {
+      "type": "model",
       "mesh": 9,
       "texture": 8,
       "aabb": {

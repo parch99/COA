@@ -21,7 +21,7 @@ export function start_timer() {
 
             if (timeLeft < 0) {
                 clearInterval(x);
-                document.getElementById("timer").innerHTML = "ČAS JE POTEKEL";
+                document.getElementById("timer").innerHTML = "Time's up";
                 location.href = 'loss.html';
             }
         }, 1000);
@@ -30,7 +30,7 @@ export function start_timer() {
 
 export function count() {
     if(counter++ == overall) {
-        document.getElementById("text").innerHTML = "Cas da zapustis hlev!";
+        document.getElementById("text").innerHTML = "Time to escape";
     }
     document.getElementById("counter").innerHTML = counter;
     coinsLeft--;
