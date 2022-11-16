@@ -17,8 +17,8 @@ export class Camera extends Node {
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
-        //this.translation[1] = 7;
-        this.keys = {};    
+        //this.translation[1] = 5;
+        this.keys = {};
     }
 
     updateProjection() {
@@ -86,10 +86,8 @@ export class Camera extends Node {
             if (this.tired === false && this.stamina>=0) this.stamina = this.stamina - 1.5;
                 
         }else{
-            if(this.tired === true || this.stamina<=400) this.stamina = this.stamina + 1;
+            if(this.tired === true || this.stamina<=400) this.stamina = this.stamina + 1.25;
         }
-
-        // Jump
 
         // 2: update velocity
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
@@ -104,8 +102,7 @@ export class Camera extends Node {
             }, 800);
             vec3.scale(c.velocity, c.velocity, 1 - c.friction);
         }
-        
-        // 4: limit speed
+
         const len = vec3.len(c.velocity);
         if (len > c.maxSpeed) {
             vec3.scale(c.velocity, c.velocity, c.maxSpeed / len);
@@ -169,7 +166,6 @@ Camera.defaults = {
     maxSpeed         : 3.5,
     friction         : 0.2,
     acceleration     : 25,
-    gravity          : -9.81,
     tired            : false,
-    stamina          : 400,
+    stamina          : 400
 };

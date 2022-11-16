@@ -4,8 +4,8 @@
       "type": "camera",
       "translation": [0, 1, 0],
       "aabb": {
-        "min": [-0.2, -0.2, -0.2],
-        "max": [0.2, 0.2, 0.2]
+        "min": [-0.2, -0.4, -0.2],
+        "max": [0.2, 0.4, 0.2]
       },
       "aspect": 1,
       "fov": 1.5,
@@ -20,17 +20,6 @@
         "min": [-1, -1, -1],
         "max": [1, 1, 1]
       },
-      "scale": [20, 1, 20]
-    },
-    {
-      "type": "model",
-      "mesh": 6,
-      "texture": 9,
-      "aabb": {
-        "min": [-1, -1, -1],
-        "max": [1, 1, 1]
-      },
-      "translation": [0, 5, 0],
       "scale": [20, 1, 20]
     },
     {
@@ -303,8 +292,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [4, 0.4, -5],
       "scale": [0.3, 0.6, 0.3]
@@ -315,8 +304,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [9, 0.4, -5],
       "scale": [0.3, 0.6, 0.3]
@@ -327,8 +316,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [-7, 0.4, -5],
       "scale": [0.3, 0.6, 0.3]
@@ -339,8 +328,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [4, 0.4, -10],
       "scale": [0.3, 0.6, 0.3]
@@ -351,8 +340,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [9, 0.4, -10],
       "scale": [0.3, 0.6, 0.3]
@@ -363,8 +352,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [-7, 0.4, -10],
       "scale": [0.3, 0.6, 0.3]
@@ -375,8 +364,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [4, 0.4, 5],
       "scale": [0.3, 0.6, 0.3]
@@ -387,8 +376,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [9, 0.4, 5],
       "scale": [0.3, 0.6, 0.3]
@@ -399,8 +388,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [-7, 0.4, 5],
       "scale": [0.3, 0.6, 0.3]
@@ -411,8 +400,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [4, 0.4, 10],
       "scale": [0.3, 0.6, 0.3]
@@ -423,8 +412,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [9, 0.4, 10],
       "scale": [0.3, 0.6, 0.3]
@@ -435,8 +424,8 @@
       "mesh": 8,
       "texture": 4,
       "aabb": {
-        "min": [-0.5, -2, -0.5],
-        "max": [0.5, 2, 0.5]
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
       },
       "translation": [-7, 0.4, 10],
       "scale": [0.3, 0.6, 0.3]
@@ -576,7 +565,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 13,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -587,7 +576,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 14,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -599,7 +588,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 14,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -610,7 +599,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 13,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -622,7 +611,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 15,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -656,7 +645,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 13,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -691,7 +680,7 @@
     {
       "type": "model",
       "mesh": 11,
-      "texture": 10,
+      "texture": 14,
       "aabb": {
         "min": [-0.3, -1, -0.3],
         "max": [0.3, 1, 0.3]
@@ -864,7 +853,7 @@
     "../../common/images/grass.png",
     "../../common/images/floorStone.png",
     "../../common/images/WallTile.jpg",
-    "../../common/images/bibtext.jpg",
+    "../../common/images/bin.jpg",
     "../../common/images/FloorNew.jpg",
     "../../common/images/chairTex.jpg",
     "../../common/images/oldtext.jpg",
@@ -872,7 +861,11 @@
     "../../common/images/ceiling2.jpg",
     "../../common/images/toil3.jpg",
     "../../common/images/bedmet3.jpg",
-    "../../common/images/bedf1.jpg"
+    "../../common/images/bedf1.jpg",
+    "../../common/images/toiletWblood1.jpg",
+    "../../common/images/toiletWblood2.jpg",
+    "../../common/images/toiletWblood3.jpg"
+
     
   ],
   "meshes": [

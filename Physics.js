@@ -15,7 +15,7 @@ export class Physics {
         this.scene.traverse(node => {
             // Move every node with defined velocity.
             if (node.velocity) {
-                vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt); 
+                vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
                 node.updateMatrix();
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
@@ -27,7 +27,7 @@ export class Physics {
             }
         });
     }
-
+    
     intervalIntersection(min1, max1, min2, max2) {
         return !(min1 > max2 || min2 > max1);
     }
@@ -175,8 +175,8 @@ export class Physics {
     randomizeCoins(){
         this.scene.traverse(node => {
             if(node.aabb.max[0] == 0.1){
-                let x = Math.floor(Math.random() * 18);
-                let z = Math.floor(Math.random() * 18);
+                let x = Math.floor(Math.random()*18);
+                let z = Math.floor(Math.random()*18);
                 let a = Math.floor(Math.random()*2);
                 let b = Math.floor(Math.random()*2);
                 if(a < 0.5) z = -z;

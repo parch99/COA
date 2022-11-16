@@ -38,6 +38,7 @@ class App extends Application {
         this.scene.traverse(node => {
             if (node instanceof Camera) {
                 this.camera = node;
+                this.spawn(node);
             }
         });
 
@@ -47,7 +48,16 @@ class App extends Application {
         this.camera.updateProjection();
         this.renderer.prepare(this.scene);
     }
-
+    spawn(player){
+        let x = Math.floor(Math.random() * 18);
+        let z = Math.floor(Math.random() * 18);
+        let a = Math.floor(Math.random()*2);
+        let b = Math.floor(Math.random()*2);
+        if(a < 0.5) z = -z;
+        if (b > 0.5) x = -x;
+        player.translation[0] = x;
+        player.translation[2] = z;
+    }
     update() {
         const t = this.time = performance.now();
         const dt = (this.time - this.startTime) * 0.001;
@@ -70,7 +80,6 @@ class App extends Application {
             this.camera.updateProjection();
         }
     }
-
     play_soundtrack() {
         const music = new Audio("../../common/audio/soundtrack.mp3");
         music.volume = 0.1;
@@ -79,6 +88,14 @@ class App extends Application {
     }
 
 }
+
+//Press R to restart
+document.body.onkeyup = function(e) {
+    if (e.keyCode == 82) {
+        window.location.reload();
+    }
+}
+
 const canvas = document.querySelector('canvas');
 const app = new App(canvas);
 await app.init();

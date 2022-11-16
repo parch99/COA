@@ -35,8 +35,11 @@ export function count() {
     document.getElementById("counter").innerHTML = counter;
     coinsLeft--;
     document.getElementById("coins").innerHTML = coinsLeft;
-    coin_collect.volume = 0.75;
+    coin_collect.volume = 0.7;
     coin_collect.play();
+    if(counter == 10) {
+        document.getElementById("text").innerHTML = "Bribe the officer!";
+    }
     
 }
 
