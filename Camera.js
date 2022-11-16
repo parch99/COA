@@ -2,8 +2,9 @@ import { vec3, mat4 } from './lib/gl-matrix-module.js';
 import { Utils } from './Utils.js';
 import { Node } from './Node.js';
 import { Physics } from './Physics.js'
-let running_and_breathing = new Audio('../../common/audio/running_and_breathing.mp3');
-let breathing_sound = new Audio('../../common/audio/breathing_sound.mp3');
+
+let running_and_breathing = new Audio('../../common/audio/running_and_breathingBoosted.mp3');
+let running_and_breathingSpeedUp = new Audio('../../common/audio/running_and_breathingSpeedUp1.mp3');
 
 export class Camera extends Node {
 
@@ -16,8 +17,8 @@ export class Camera extends Node {
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
-        //this.translation[1] = 10;
-        this.keys = {};
+        //this.translation[1] = 7;
+        this.keys = {};    
     }
 
     updateProjection() {
@@ -31,43 +32,79 @@ export class Camera extends Node {
             -Math.sin(c.rotation[1]), 0, -Math.cos(c.rotation[1]));
         const right = vec3.set(vec3.create(),
             Math.cos(c.rotation[1]), 0, -Math.sin(c.rotation[1]));
-
+        
         // 1: add movement acceleration
         const acc = vec3.create();
+        this.maxSpeed = 3.5;
         if (this.keys['KeyW']) {
-            running_and_breathing.volume = 1;
-            running_and_breathing.play();
-            vec3.add(acc, acc, forward);
+            if(this.keys['ShiftLeft'] && !this.tired){
+                c.maxSpeed = 5.5;
+                vec3.add(acc, acc, forward);
+                running_and_breathing.pause();
+                running_and_breathingSpeedUp.volume = 1;
+                running_and_breathingSpeedUp.play();
+            } else {
+                running_and_breathingSpeedUp.pause()
+                running_and_breathing.volume = 0.6;
+                running_and_breathing.play();
+                vec3.add(acc, acc, forward);
+            }
         }
         if (this.keys['KeyS']) {
-            vec3.sub(acc, acc, forward);
+            if(this.keys['ShiftLeft'] && !c.tired){
+                c.maxSpeed = 5.5;
+                vec3.sub(acc, acc, forward);
+            } else {
+                vec3.sub(acc, acc, forward);
+            }
         }
         if (this.keys['KeyD']) {
-            vec3.add(acc, acc, right);
+            if(this.keys['ShiftLeft'] && !c.tired){
+                c.maxSpeed = 5.5;
+                vec3.add(acc, acc, right);
+            } else {
+                vec3.add(acc, acc, right);
+            }
         }
         if (this.keys['KeyA']) {
-            vec3.sub(acc, acc, right);
+            if(this.keys['ShiftLeft'] && !c.tired){
+                c.maxSpeed = 5.5;
+                vec3.sub(acc, acc, right);
+            } else {
+                vec3.sub(acc, acc, right);
+            }
         }
-        if (this.keys['KeyE']) {
-            //this.translation[1] = 2;
+        // Run
+        if (c.stamina <= 0) {
+            c.tired = true;
+            c.stamina = 0;
+        } else if (c.stamina >= 0) {
+            c.tired = false;
         }
-        
+
+        if (this.keys['ShiftLeft']) {
+            if (this.tired === false && this.stamina>=0) this.stamina = this.stamina - 1.5;
+                
+        }else{
+            if(this.tired === true || this.stamina<=400) this.stamina = this.stamina + 1;
+        }
+
+        // Jump
+
         // 2: update velocity
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
 
         // 3: if no movement, apply friction
-        if (!this.keys['KeyW'] &&
-            !this.keys['KeyS'] &&
-            !this.keys['KeyD'] &&
-            !this.keys['KeyA'])
-        {   
-            running_and_breathing.volume = 0.5;
+        if (!this.keys['KeyW'] && !this.keys['KeyS'] && !this.keys['KeyD'] && !this.keys['KeyA']/*  && !this.keys['ShiftLeft']*/){  
+            running_and_breathing.volume = 0.4;
+            running_and_breathingSpeedUp.volume = 0.6;
             setTimeout(function() {
                 running_and_breathing.pause();
-            }, 1000);
+                running_and_breathingSpeedUp.pause();
+            }, 800);
             vec3.scale(c.velocity, c.velocity, 1 - c.friction);
         }
-
+        
         // 4: limit speed
         const len = vec3.len(c.velocity);
         if (len > c.maxSpeed) {
@@ -116,7 +153,6 @@ export class Camera extends Node {
     keydownHandler(e) {
         this.keys[e.code] = true;
     }
-
     keyupHandler(e) {
         this.keys[e.code] = false;
     }
@@ -132,5 +168,8 @@ Camera.defaults = {
     pointerSensitivity : 0.002,
     maxSpeed         : 3.5,
     friction         : 0.2,
-    acceleration     : 25
+    acceleration     : 25,
+    gravity          : -9.81,
+    tired            : false,
+    stamina          : 400,
 };

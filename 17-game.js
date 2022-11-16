@@ -15,6 +15,7 @@ class App extends Application {
         this.time = performance.now();
         this.startTime = this.time;
         this.aspect = 1;
+        
         await this.load('scene.json');
 
         this.canvas.addEventListener('click', e => this.canvas.requestPointerLock());
@@ -31,8 +32,7 @@ class App extends Application {
         const scene = await new SceneLoader().loadScene(uri);
         const builder = new SceneBuilder(scene);
         this.scene = builder.build();
-        this.physics = new Physics(this.scene);
-
+        this.camera = null;
         // Find first camera.
         this.camera = null;
         this.scene.traverse(node => {
@@ -40,6 +40,8 @@ class App extends Application {
                 this.camera = node;
             }
         });
+
+        this.physics = new Physics(this.scene, this.camera);
 
         this.camera.aspect = this.aspect;
         this.camera.updateProjection();
