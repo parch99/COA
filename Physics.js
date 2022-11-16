@@ -5,8 +5,9 @@ let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
 export class Physics {
 
-    constructor(scene) {
+    constructor(scene, camera) {
         this.scene = scene;
+        this.camera = camera;
         this.randomizeCoins();
     }
 
@@ -14,9 +15,8 @@ export class Physics {
         this.scene.traverse(node => {
             // Move every node with defined velocity.
             if (node.velocity) {
-                vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
+                vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt); 
                 node.updateMatrix();
-                
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
                     if (node !== other) {
@@ -190,7 +190,6 @@ export class Physics {
                         this.resolveCollision(node, other);
                     }
                 });
-
                 node.translation[1] = 1;
                 node.updateMatrix();
             }
