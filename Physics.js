@@ -135,7 +135,7 @@ export class Physics {
                         door_close.play();
                         b.translation[0] = 0;
                         b.updateMatrix();
-                    }, 4000);
+                    }, 5000);
                 };
             }
         });

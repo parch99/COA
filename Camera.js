@@ -3,8 +3,8 @@ import { Utils } from './Utils.js';
 import { Node } from './Node.js';
 import { Physics } from './Physics.js'
 
-let running_and_breathing = new Audio('../../common/audio/running_and_breathingBoosted.mp3');
-let running_and_breathingSpeedUp = new Audio('../../common/audio/running_and_breathingSpeedUp1.mp3');
+let running_and_breathing = new Audio('../../common/audio/running_and_breathingBoosted.opus');
+let running_and_breathingSpeedUp = new Audio('../../common/audio/running_and_breathingSpeedUp1.opus');
 
 export class Camera extends Node {
 

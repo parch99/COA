@@ -81,10 +81,10 @@ class App extends Application {
         }
     }
     play_soundtrack() {
-        const music = new Audio("../../common/audio/soundtrack.mp3");
-        music.volume = 0.1;
-        music.loop = true;
-        music.play();
+        const soundtrack = new Audio("../../common/audio/soundtrack.opus");
+        soundtrack.volume = 0.1;
+        soundtrack.loop = true;
+        soundtrack.play();
     }
 
 }
