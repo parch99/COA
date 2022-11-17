@@ -2,22 +2,33 @@
 <html>
 <head>
     <style>
-            .container {
-                position: relative;
-                text-align: center;
+            .link {
                 color: white;
-            }
-            .centered {
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 6vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bolder;
+                top: 78%;
+                left: 42%;
             }
-            .right {
+            a:hover {
+                color: rgb(194, 194, 255);
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .link2 {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 60%;
-                left: 70%;
-                transform: translate(-50%, -50%);
+                font-size: 4vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bold;
+                top: 10%;
+                left: 41%;
             }
     </style>
 
@@ -32,8 +43,9 @@
 <body>
     <div class="fullscreen">
         <div id = "starting_screen">
-            <img class="fullscreen" src="../common/images/end.png">    
-            <a class="right" href="game.html"><img src="../common/images/igraj.png" alt="Start" width="300" height="100"/></a>
+            <img class="fullscreen" src="../common/images/lostimg.jpg">    
+            <a class="link" href="game.html">PLAY<br>AGAIN</a>
+            <a class="link2" href="instructions.html">INSTRUCTIONS</a>
         </div>
         <canvas></canvas>
     </div>
