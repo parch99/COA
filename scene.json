@@ -854,6 +854,66 @@
       "translation": [11, 0.4, 13],
       "rotation": [0, 0, 0],
       "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 6,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [13, 0, 11],
+      "rotation": [0, 2, 0],
+      "scale": [0.15, 0.15, 0.15]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 6,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [-13, 0, -14],
+      "rotation": [0, 2, 0],
+      "scale": [0.15, 0.15, 0.15]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 6,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [-13, 0, 11],
+      "rotation": [0, 2, 0],
+      "scale": [0.15, 0.15, 0.15]
+    },
+    {
+      "type": "model",
+      "mesh": 3,
+      "texture": 6,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [14, 0, -15],
+      "rotation": [0, 2, 0],
+      "scale": [0.15, 0.15, 0.15]
+    },
+    {
+      "type": "model",
+      "mesh": 14,
+      "texture": 7,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [1, 0, 3],
+      "rotation": [0, 0, 0],
+      "scale": [2, 2, 2]
     }
     
     
@@ -883,7 +943,7 @@
     "../../common/models/cube.json",
     "../../common/models/pyramid.json",
     "../../common/models/floor.json",
-    "../../common/models/floor.json",
+    "../../common/models/chairO.json",
     "../../common/models/cube2.json",
     "../../common/models/cube3.json",
     "../../common/models/cube4.json",
@@ -893,6 +953,7 @@
     "../../common/models/door.json",
     "../../common/models/toiletOBJ3.json",
     "../../common/models/bedOBJ.json",
-    "../../common/models/bedfOBJ.json"
+    "../../common/models/bedfOBJ.json",
+    "../../common/models/police.json"
   ]
 }

@@ -2,26 +2,36 @@
 <html>
 <head>
     <style>
-            .container {
-                position: relative;
-                text-align: center;
+            .link {
                 color: white;
-            }
-            .centered {
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                font-size: 12vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bolder;
+                top: 82%;
+                left: 41%;
             }
-            .right {
+            a:hover {
+                color: rgb(180, 250, 177);
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .link2 {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 85%;
-                left: 85%;
-                transform: translate(-50%, -50%);
+                font-size: 5vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bold;
+                top: 2%;
+                left: 40%;
             }
     </style>
 
-    <title>Chicken Hunt - RGTI</title>
+    <title>Coins of Alcatraz - RGTI</title>
     <link rel="icon" type="image/x-icon" href="../common/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../common/style.css">
 
@@ -31,12 +41,9 @@
 </head>
 <body>
     <div class="fullscreen">
-        <div class="fullscreen">
-            <div id = "starting_screen">
-                <img class="fullscreen" src="../common/images/CHnavodila.png">    
-                <a class="right" href="index.html"><img src="../common/images/nazaj.png" alt="Start" width="180" height="60"/></a>
-            </div>
-            <canvas></canvas>
+        <div id = "starting_screen">
+            <img class="fullscreen" src="../common/images/instimg.jpg">    
+            <a class="link" href="game.html">PLAY</a>
         </div>
         <canvas></canvas>
     </div>
