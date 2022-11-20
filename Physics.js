@@ -1,13 +1,14 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
 import { count, check } from './TImer.js'
+import { Flashlight } from './Flashlight.js'
+
 
 let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
 export class Physics {
 
-    constructor(scene, camera) {
+    constructor(scene) {
         this.scene = scene;
-        this.camera = camera;
         this.randomizeCoins();
     }
 
@@ -18,12 +19,14 @@ export class Physics {
                 vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
                 node.updateMatrix();
                 // After moving, check for collision with every other node.
-                this.scene.traverse(other => {
-                    if (node !== other) {
-                        this.resolveCollision(node, other);
-                        this.check2(node);
-                    }
-                });
+                if (!(node instanceof Flashlight)) {
+                    this.scene.traverse(other => {
+                        if (node !== other && !(other instanceof Flashlight && node.hasFlashlight)) {
+                            this.resolveCollision(node, other);
+                            this.check2(node);
+                        }
+                    });
+                }
             }
         });
     }
@@ -63,7 +66,10 @@ export class Physics {
     }
 
     resolveCollision(a, b) {
-        
+        if(b instanceof Flashlight && !a.hasFlashlight) {
+            a.flashlight = b;
+            return;
+        }
         // Get global space AABBs.
         const aBox = this.getTransformedAABB(a);
         const bBox = this.getTransformedAABB(b);
@@ -74,7 +80,7 @@ export class Physics {
             return;
         }
         
-        
+
         if( b.aabb.max[0] == 0.1 ) { //coins
             count();
             b.translation[1] = -4;
@@ -85,7 +91,7 @@ export class Physics {
             b.translation[1] = -4;
             b.updateMatrix();
         }
-
+        
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);

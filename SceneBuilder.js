@@ -1,9 +1,7 @@
 import { Mesh } from './Mesh.js';
-
 import { Node } from './Node.js';
 import { Model } from './Model.js';
 import { Camera } from './Camera.js';
-
 import { Scene } from './Scene.js';
 
 export class SceneBuilder {

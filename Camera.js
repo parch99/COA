@@ -38,7 +38,7 @@ export class Camera extends Node {
         this.maxSpeed = 3.5;
         if (this.keys['KeyW']) {
             if(this.keys['ShiftLeft'] && !this.tired){
-                c.maxSpeed = 5.5;
+                c.maxSpeed = c.maxSpeed + 2;
                 vec3.add(acc, acc, forward);
                 running_and_breathing.pause();
                 running_and_breathingSpeedUp.volume = 1;
@@ -52,7 +52,7 @@ export class Camera extends Node {
         }
         if (this.keys['KeyS']) {
             if(this.keys['ShiftLeft'] && !c.tired){
-                c.maxSpeed = 5.5;
+                c.maxSpeed = c.maxSpeed + 2;
                 vec3.sub(acc, acc, forward);
             } else {
                 vec3.sub(acc, acc, forward);
@@ -60,7 +60,7 @@ export class Camera extends Node {
         }
         if (this.keys['KeyD']) {
             if(this.keys['ShiftLeft'] && !c.tired){
-                c.maxSpeed = 5.5;
+                c.maxSpeed = c.maxSpeed + 2;
                 vec3.add(acc, acc, right);
             } else {
                 vec3.add(acc, acc, right);
@@ -68,7 +68,7 @@ export class Camera extends Node {
         }
         if (this.keys['KeyA']) {
             if(this.keys['ShiftLeft'] && !c.tired){
-                c.maxSpeed = 5.5;
+                c.maxSpeed = c.maxSpeed + 2;
                 vec3.sub(acc, acc, right);
             } else {
                 vec3.sub(acc, acc, right);
@@ -101,6 +101,12 @@ export class Camera extends Node {
                 running_and_breathingSpeedUp.pause();
             }, 800);
             vec3.scale(c.velocity, c.velocity, 1 - c.friction);
+        }
+
+        if (this.keys['KeyE'] ) {
+            if (this.flashlight){
+                this.getFlashlight(this.flashlight);
+            }
         }
 
         const len = vec3.len(c.velocity);
@@ -152,6 +158,14 @@ export class Camera extends Node {
     }
     keyupHandler(e) {
         this.keys[e.code] = false;
+    }
+
+    getFlashlight(flashlight) {
+        const c = this;
+        this.hasFlashlight = true;
+        c.addChild(flashlight);
+        flashlight.setCarryTranslation();
+        flashlight.updateMatrix();
     }
 
 }

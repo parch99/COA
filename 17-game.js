@@ -6,11 +6,15 @@ import { Camera } from './Camera.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
 import { start_timer } from './Timer.js';
+import { Flashlight } from './Flashlight.js'
+
+import { FlashlightBuilder } from './FlashlightBuilder.js';
 
 class App extends Application {
     
     async start() {
         const gl = this.gl;
+        APP = this;
         this.renderer = new Renderer(gl);
         this.time = performance.now();
         this.startTime = this.time;
@@ -32,22 +36,26 @@ class App extends Application {
         const scene = await new SceneLoader().loadScene(uri);
         const builder = new SceneBuilder(scene);
         this.scene = builder.build();
+        this.FlashlightBuilder = await new FlashlightBuilder().init(scene, this.scene, this.renderer);
         this.camera = null;
-        // Find first camera.
-        this.camera = null;
+        
         this.scene.traverse(node => {
             if (node instanceof Camera) {
                 this.camera = node;
-                this.spawn(node);
+                //this.spawn(node);
             }
         });
-
-        this.physics = new Physics(this.scene, this.camera);
-
+        this.scene.camera = this.camera;
         this.camera.aspect = this.aspect;
+        this.camera.APP = this;
         this.camera.updateProjection();
+
+        this.physics = new Physics(this.scene);
         this.renderer.prepare(this.scene);
+
+        this.FlashlightBuilder.createModel("Flashlight");
     }
+
     spawn(player){
         let x = Math.floor(Math.random() * 18);
         let z = Math.floor(Math.random() * 18);
@@ -62,7 +70,6 @@ class App extends Application {
         const t = this.time = performance.now();
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
-
         this.camera.update(dt);
         this.physics.update(dt);
     }

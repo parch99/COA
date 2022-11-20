@@ -1,7 +1,5 @@
 import { mat4 } from './lib/gl-matrix-module.js';
-
 import { WebGL } from './common/engine/WebGL.js';
-
 import { shaders } from './shaders.js';
 
 export class Renderer {
@@ -26,12 +24,20 @@ export class Renderer {
             }
         });
     }
+    prepareNode(node) {
+        node.gl = {};
+        if (node.mesh) {
+            Object.assign(node.gl, this.createModel(node.mesh));
+        }
+        if (node.image) {
+            node.gl.texture = this.createTexture(node.image);
+        }
+    }
 
     render(scene, camera) {
         const gl = this.gl;
-
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
+        
         const { program, uniforms } = this.programs.simple;
         gl.useProgram(program);
 

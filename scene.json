@@ -13,6 +13,15 @@
       "far": 100
     },
     {
+      "type": "Flashlight",
+      "mesh": 15,
+      "texture": 4,
+      "aabb": {
+        "min": [-1, -1, -1],
+        "max": [1, 1, 1]
+      }
+    },
+    {
       "type": "model",
       "mesh": 6,
       "texture": 9,
@@ -20,7 +29,7 @@
         "min": [-1, -1, -1],
         "max": [1, 1, 1]
       },
-      "translation": [0, 5, 0],
+      "translation": [0, 15, 0],
       "scale": [20, 1, 20]
     },
     {
@@ -306,7 +315,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [4, 0.4, -5],
+      "translation": [4, 0.4, -2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -318,7 +327,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [9, 0.4, -5],
+      "translation": [7, 0.4, -2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -330,7 +339,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [-7, 0.4, -5],
+      "translation": [-7, 0.4, -2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -342,7 +351,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [4, 0.4, -10],
+      "translation": [4, 0.4, -2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -354,7 +363,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [9, 0.4, -10],
+      "translation": [7, 0.4, -9.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -366,7 +375,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [-7, 0.4, -10],
+      "translation": [-7, 0.4, -14.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -378,7 +387,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [4, 0.4, 5],
+      "translation": [4, 0.4, 2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -390,7 +399,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [9, 0.4, 5],
+      "translation": [7, 0.4, 2.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -402,7 +411,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [-7, 0.4, 5],
+      "translation": [-7, 0.4, 6.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -414,7 +423,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [4, 0.4, 10],
+      "translation": [4, 0.4, 9.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -426,7 +435,7 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [9, 0.4, 10],
+      "translation": [7, 0.4, 9.5],
       "scale": [0.3, 0.6, 0.3]
     }
     ,
@@ -719,7 +728,7 @@
         "min": [-1, -1, -0.5],
         "max": [1, 2, 0.5]
       },
-      "translation": [-3, 0, -3],
+      "translation": [-3, 0, -6],
       "rotation": [0, 0, 0],
       "scale": [1, 1, 1]
     },
@@ -767,7 +776,19 @@
         "min": [-1, -1, -0.5],
         "max": [1, 2, 0.5]
       },
-      "translation": [13, 0, -6],
+      "translation": [7.5, 0, -6.5],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -0.5],
+        "max": [1, 2, 0.5]
+      },
+      "translation": [7.5, 0, -4.5],
       "rotation": [0, 0, 0],
       "scale": [1, 1, 1]
     },
@@ -815,7 +836,7 @@
         "min": [-1, -1, -0.5],
         "max": [1, 2, 0.5]
       },
-      "translation": [-11, 0, 6],
+      "translation": [-7.5, 0, 2.5],
       "rotation": [0, 0, 0],
       "scale": [1, 1, 1]
     },
@@ -839,7 +860,19 @@
         "min": [-1, -1, -0.5],
         "max": [1, 2, 0.5]
       },
-      "translation": [13, 0, 6],
+      "translation": [7.5, 0, 6.5],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    {
+      "type": "model",
+      "mesh": 12,
+      "texture": 11,
+      "aabb": {
+        "min": [-1, -1, -0.5],
+        "max": [1, 2, 0.5]
+      },
+      "translation": [11, 0, 6.5],
       "rotation": [0, 0, 0],
       "scale": [1, 1, 1]
     },
@@ -851,7 +884,31 @@
         "min": [-0.25, -0.5, -0.5],
         "max": [0.25, 0.5, 0.5]
       },
-      "translation": [11, 0.4, 13],
+      "translation": [9, 0.4, 13.5],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [7, 0.4, 13.5],
+      "rotation": [0, 0, 0],
+      "scale": [2.5, 2.5, 2.5]
+    },
+    {
+      "type": "model",
+      "mesh": 13,
+      "texture": 12,
+      "aabb": {
+        "min": [-0.25, -0.5, -0.5],
+        "max": [0.25, 0.5, 0.5]
+      },
+      "translation": [11, 0.4, 13.5],
       "rotation": [0, 0, 0],
       "scale": [2.5, 2.5, 2.5]
     },
@@ -863,8 +920,8 @@
         "min": [-0.25, -0.5, -0.5],
         "max": [0.25, 0.5, 0.5]
       },
-      "translation": [13, 0, 11],
-      "rotation": [0, 2, 0],
+      "translation": [13, 0, 14.5],
+      "rotation": [0, 0, 0],
       "scale": [0.15, 0.15, 0.15]
     },
     {
@@ -954,6 +1011,7 @@
     "../../common/models/toiletOBJ3.json",
     "../../common/models/bedOBJ.json",
     "../../common/models/bedfOBJ.json",
-    "../../common/models/police.json"
+    "../../common/models/police.json",
+    "../../common/models/flash.json"
   ]
 }
