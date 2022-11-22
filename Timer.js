@@ -40,5 +40,5 @@ export function count() {
 }
 
 export function check() {
-    counter == overall ? location.href = 'win.html' : location.href = 'loss.html';
+    counter == 10 ? location.href = 'win.html' : location.href = 'loss.html';
 }

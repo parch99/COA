@@ -2,26 +2,37 @@
 <html>
 <head>
     <style>
-            .container {
-                position: relative;
-                text-align: center;
+            .link {
                 color: white;
-            }
-            .centered {
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 7vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bolder;
+                top: 81.5%;
+                left: 43.5%;
             }
-            .right {
+            a:hover {
+                color: rgb(180, 250, 177);
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .link2 {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
                 position: absolute;
-                top: 60%;
-                left: 70%;
-                transform: translate(-50%, -50%);
+                font-size: 5vh;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bold;
+                top: 2%;
+                left: 40%;
             }
     </style>
 
-    <title>Chicken Hunt - RGTI</title>
+    <title>Coins of Alcatraz - RGTI</title>
     <link rel="icon" type="image/x-icon" href="../common/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../common/style.css">
 
@@ -32,8 +43,8 @@
 <body>
     <div class="fullscreen">
         <div id = "starting_screen">
-            <img class="fullscreen" src="../common/images/zmaga.png">    
-            <a class="right" href="game.html"><img src="../common/images/igraj.png" alt="Start" width="300" height="100"/></a>
+            <img class="fullscreen" src="../common/images/winscreen.jpg">    
+            <a class="link" href="game.html">PLAY<br>AGAIN</a>
         </div>
         <canvas></canvas>
     </div>

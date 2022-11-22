@@ -88,7 +88,6 @@ export class Physics {
         }
         if( b.aabb.max[0] == 0.4 ) { //officer
             check();
-            b.translation[1] = -4;
             b.updateMatrix();
         }
         
