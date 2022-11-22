@@ -145,6 +145,21 @@ export class Physics {
             }
         });
     }
+//OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
+    check3(a){
+        this.scene.traverse(b => {
+            if(b.aabb.max[0] == 0.75){
+                if(this.checkDistance(a,b) && check() === true){
+                    door_open.volume = 0.5;
+                    door_open.play();
+                    b.translation[0] = -1.75;
+                    b.updateMatrix();
+                };
+            }
+        });
+    }
+
+
     checkDistance(a, b){
         const aBox = this.getTransformedAABB(a);
         const bBox = this.getTransformedAABB(b);

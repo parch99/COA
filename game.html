@@ -26,16 +26,26 @@
             margin-left: 43%;
         }
 
+        .warn{
+            font-size:200%;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            width: 30px;
+            border: 3px solid rgb(0, 0, 0);
+            padding: 7px;
+        }
+
     </style>
 </head>
 <body>
 	<div class="overlay">
         	<p><span id="timer" class = "timer" style="font-size:350%;">5:00</span></p>
-        <p id="text">
-            <span style="font-size:200%; color: rgb(255, 240, 32);">COINS:   </span>
-            <span id="counter" style="font-size:200%; color: rgb(255, 240, 32);">0</span><br><br>
-            <span style="font-size:200%; color: rgb(255, 139, 139);">COINS LEFT:   </span>
-            <span id="coins" style="font-size:200%; color: rgb(255, 139, 139);">10</span></p>
+        <p id="text" style="font-size:300%; padding-bottom: 3%;">
+            <span style="color: rgb(255, 240, 32);">COINS:   </span>
+            <span id="counter" style="color: rgb(255, 240, 32);">0</span><br>
+            <span style="color: rgb(255, 139, 139);">COINS LEFT:   </span>
+            <span id="coins" style="color: rgb(255, 139, 139);">10</span></p><br><br>
+            <p id="warn"></p>
     	</div>	
     <div class="fullscreen no-touch">
         <canvas></canvas>
