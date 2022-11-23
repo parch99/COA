@@ -26,10 +26,9 @@ body, html {
 }
 
 .fs40{
-    font-size:150%;
     text-shadow: none;
     letter-spacing: 4px;
-    border-radius: 25px;
+    border-radius: 20px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     border: 3px solid rgb(0, 0, 0);
