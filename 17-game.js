@@ -7,6 +7,7 @@ import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
 import { start_timer } from './Timer.js';
 import { Flashlight } from './Flashlight.js'
+import { Light } from './Light.js';
 
 import { FlashlightBuilder } from './FlashlightBuilder.js';
 
@@ -21,6 +22,8 @@ class App extends Application {
         this.aspect = 1;
         this.showHelper = 0;
         await this.load('scene.json');
+
+        this.light = new Light();
 
         this.canvas.addEventListener('click', e => this.canvas.requestPointerLock());
         document.addEventListener('pointerlockchange', e => {
@@ -75,7 +78,7 @@ class App extends Application {
     }
 
     render() {
-        this.renderer.render(this.scene, this.camera);
+        this.renderer.render(this.scene, this.camera, this.light);
     }
 
     resize() {

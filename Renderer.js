@@ -1,4 +1,4 @@
-import { mat4 } from './lib/gl-matrix-module.js';
+import { mat4, vec3 } from './lib/gl-matrix-module.js';
 import { WebGL } from './common/engine/WebGL.js';
 import { shaders } from './shaders.js';
 
@@ -10,7 +10,14 @@ export class Renderer {
         gl.clearColor(1, 1, 1, 1);
         gl.enable(gl.DEPTH_TEST);
         gl.enable(gl.CULL_FACE);
+
         this.programs = WebGL.buildPrograms(gl, shaders);
+
+        this.defaultTexture = WebGL.createTexture(gl, {
+            width  : 1,
+            height : 1,
+            data   : new Uint8Array([255, 255, 255, 255])
+        });
     }
 
     prepare(scene) {
@@ -34,11 +41,12 @@ export class Renderer {
         }
     }
 
-    render(scene, camera) {
+    render(scene, camera, light) {
         const gl = this.gl;
+        gl.clearColor(0.5, 0.62, 0.75, 0.8);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         
-        const { program, uniforms } = this.programs.simple;
+        const { program, uniforms } = this.programs.phong;
         gl.useProgram(program);
 
         const matrix = mat4.create();
@@ -48,6 +56,19 @@ export class Renderer {
         mat4.invert(viewMatrix, viewMatrix);
         mat4.copy(matrix, viewMatrix);
         gl.uniformMatrix4fv(uniforms.uProjection, false, camera.projection);
+
+        let color = vec3.clone(light.ambientColor);
+        vec3.scale(color, color, 1.0 / 255.0);
+        gl.uniform3fv(uniforms.uAmbientColor, color);
+        color = vec3.clone(light.diffuseColor);
+        vec3.scale(color, color, 1.0 / 255.0);
+        gl.uniform3fv(uniforms.uDiffuseColor, color);
+        color = vec3.clone(light.specularColor);
+        vec3.scale(color, color, 1.0 / 255.0);
+        gl.uniform3fv(uniforms.uSpecularColor, color);
+        gl.uniform1f(uniforms.uShininess, light.shininess);
+        gl.uniform3fv(uniforms.uLightPosition, light.position);
+        gl.uniform3fv(uniforms.uLightAttenuation, light.attenuatuion);
 
         scene.traverse(
             node => {
