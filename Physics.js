@@ -67,8 +67,13 @@ export class Physics {
 
     resolveCollision(a, b) {
         if(b instanceof Flashlight && !a.hasFlashlight) {
-            a.flashlight = b;
-            return;
+            b.translation = [0.25, 0.84, -3.75]
+            b.scale = [2, 2, 2];
+            b.rotation[0] = 0.8;
+            b.rotation[2] = 1.58;
+            b.aabb.max = [0.1, 1, 0.1];
+            b.aabb.min = [-0.1, -1, -0.1];
+            b.updateMatrix();
         }
         // Get global space AABBs.
         const aBox = this.getTransformedAABB(a);
@@ -78,8 +83,12 @@ export class Physics {
         const isColliding = this.aabbIntersection(aBox, bBox);
         if (!isColliding) {
             return;
+        } else if (b instanceof Flashlight && !a.hasFlashlight) {
+            APP.showHelper = 1;
+            a.flashlight = b;
+            return;
         }
-        
+        APP.showHelper = 0;
 
         if( b.aabb.max[0] == 0.1 ) { //coins
             count();
@@ -88,7 +97,6 @@ export class Physics {
         }
         if( b.aabb.max[0] == 0.4 ) { //officer
             check();
-            b.updateMatrix();
         }
         
         // Move node A minimally to avoid collision.

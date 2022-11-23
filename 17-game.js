@@ -19,7 +19,7 @@ class App extends Application {
         this.time = performance.now();
         this.startTime = this.time;
         this.aspect = 1;
-        
+        this.showHelper = 0;
         await this.load('scene.json');
 
         this.canvas.addEventListener('click', e => this.canvas.requestPointerLock());

@@ -104,7 +104,7 @@ export class Camera extends Node {
         }
 
         if (this.keys['KeyE'] ) {
-            if (this.flashlight){
+            if (APP.showHelper == 1 && this.flashlight){
                 this.getFlashlight(this.flashlight);
             }
         }
@@ -166,6 +166,13 @@ export class Camera extends Node {
         c.addChild(flashlight);
         flashlight.setCarryTranslation();
         flashlight.updateMatrix();
+
+        for (var i = 0; i < this.APP.scene.nodes.length; i++) {
+            if (this.APP.scene.nodes[i] === flashlight) {
+                this.APP.scene.nodes.splice(i, 1);
+                break;
+            }
+        }
     }
 
 }

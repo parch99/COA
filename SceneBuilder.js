@@ -18,6 +18,7 @@ export class SceneBuilder {
                 const texture = this.spec.textures[spec.texture];
                 return new Model(mesh, texture, spec);
             }
+            case 'flashlight': return null;
             default: return new Node(spec);
         }
     }

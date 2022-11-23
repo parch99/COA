@@ -14,12 +14,6 @@ export class Flashlight extends Model {
         this.scale = vec3.set(vec3.create(), 3, 3, 3);
         this.rotation = vec3.set(vec3.create(), -1.5, 0.5, 0);
     }
-    update() {
-        if (this.translation[2] > -0.39)
-            this.velocity[2] = -0.3;
-        else
-            this.velocity[2] = 0;
-    }
 }
 
 Flashlight.defaults = {
