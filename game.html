@@ -15,7 +15,6 @@
             font-weight: bold;
 
             font-size: 20px;
-            margin-left: 50px;
             letter-spacing: 11px;
             color: rgb(255, 255, 255);
             text-shadow: rgb(0, 0, 0) -3px 1px 7px;
@@ -27,6 +26,8 @@
         }
 
         .warn{
+            position: fixed;
+            margin-top: 200px;
             font-size:200%;
             color: rgb(0, 0, 0);
             background-color: rgb(255, 255, 255);
@@ -40,15 +41,18 @@
 <body>
 	<div class="overlay">
         	<p><span id="timer" class = "timer" style="font-size:350%;">5:00</span></p>
-        <p id="text" style="font-size:300%; padding-bottom: 3%;">
+        <p id="text" style="position: absolute; top: 100%; left: 3%; width: 30%; height: 20%; text-align: left; font-size: 250%; display: inline-block;">
             <span style="color: rgb(255, 240, 32);">COINS:   </span>
             <span id="counter" style="color: rgb(255, 240, 32);">0</span><br>
-            <span style="color: rgb(255, 139, 139);">COINS LEFT:   </span>
-            <span id="coins" style="color: rgb(255, 139, 139);">10</span></p><br><br>
-            <p id="warn"></p>
+            <span style="color: rgb(255, 100, 100);">COINS LEFT:   </span>
+            <span id="coins" style="color: rgb(255, 100, 100);">10</span>
+            <br><br><br>
+            <span id="warn" style="font-size: 30px;"></span></p>
+            
     	</div>	
     <div class="fullscreen no-touch">
-        <canvas></canvas>
+        <canvas style="background: url('../common/images/load2.gif'); background-position: center;
+        background-repeat: no-repeat;"></canvas>
     </div>
 
     <script>

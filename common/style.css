@@ -26,10 +26,9 @@ body, html {
 }
 
 .fs40{
-    font-size:150%;
     text-shadow: none;
     letter-spacing: 4px;
-    border-radius: 25px;
+    border-radius: 20px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     border: 3px solid rgb(0, 0, 0);
@@ -50,7 +49,7 @@ a.back {
 a.back:hover {
     background: #ddd;
 }
-/*
+
 .loader-container {
     display: flex;
     align-items: center;
@@ -73,4 +72,3 @@ a.back:hover {
     0% { transform: rotate(0deg); }
   100% { transform: rotate(1800deg); }
 }
-*/
