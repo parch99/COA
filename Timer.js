@@ -46,7 +46,7 @@ export function check() {
         document.getElementById("warn").innerHTML = '<span class="fs40">THANK YOU, YOU CAN NOW ESCAPE!</span>';
         return true;
     }else{
-        document.getElementById("warn").innerHTML = '<span class="fs40">You are going to need a lot more than that, now get out of here!</span>';
+        document.getElementById("warn").innerHTML = '<span class="fs40">More coins than that inmate!</span>';
         setTimeout(function() {
             document.getElementById("warn").innerHTML = "";
         }, 3000);
