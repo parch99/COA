@@ -10,9 +10,9 @@ export class Flashlight extends Model {
     }
 
     setCarryTranslation() {
-        this.translation = vec3.set(vec3.create(), 0.4, -0.6, -0.4);
+        this.translation = vec3.set(vec3.create(), 0.5, -0.5, -0.2);
         this.scale = vec3.set(vec3.create(), 3, 3, 3);
-        this.rotation = vec3.set(vec3.create(), -1.5, 0.5, 0);
+        this.rotation = vec3.set(vec3.create(), -1.6, 0.5, 0);
     }
 }
 
