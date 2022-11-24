@@ -17,7 +17,7 @@ export class Camera extends Node {
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
-        //this.translation[1] = 5;
+        //this.translation[1] = 5
         this.keys = {};
     }
 
@@ -106,7 +106,10 @@ export class Camera extends Node {
         if (this.keys['KeyE'] ) {
             if (APP.showHelper == 1 && this.flashlight){
                 this.getFlashlight(this.flashlight);
+            } else if (APP.showHelper == 2 && this.knife){
+                this.getKnife(this.knife);
             }
+
         }
 
         const len = vec3.len(c.velocity);
@@ -166,9 +169,23 @@ export class Camera extends Node {
         c.addChild(flashlight);
         flashlight.setCarryTranslation();
         flashlight.updateMatrix();
-
+        
         for (var i = 0; i < this.APP.scene.nodes.length; i++) {
             if (this.APP.scene.nodes[i] === flashlight) {
+                this.APP.scene.nodes.splice(i, 1);
+                break;
+            }
+        }
+    }
+    getKnife(knife) {
+        const c = this;
+        this.hasKnife = true;
+        c.addChild(knife);
+        knife.setCarryTranslation();
+        knife.updateMatrix();
+        console.log(c);
+        for (var i = 0; i < this.APP.scene.nodes.length; i++) {
+            if (this.APP.scene.nodes[i] === knife) {
                 this.APP.scene.nodes.splice(i, 1);
                 break;
             }

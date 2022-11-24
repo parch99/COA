@@ -1,4 +1,5 @@
 import { Flashlight } from './Flashlight.js';
+import { Knife } from './Knife.js';
 import { Mesh } from './Mesh.js';
 export class FlashlightBuilder {
 
@@ -13,6 +14,7 @@ export class FlashlightBuilder {
 
     async loadModel() {
         this.flashlightModel = await this.loadJson('../../common/models/flash.json');
+        this.knifeModel = await this.loadJson('../../common/models/knife.json');
     }
 
     createModel(type) {
@@ -21,6 +23,14 @@ export class FlashlightBuilder {
                 const mesh = new Mesh(this.sceneMap.meshes[15]);
                 const texture = this.sceneMap.textures[4];
                 const model = new Flashlight(mesh, texture, this.flashlightModel);
+                this.scene.addNode(model);
+                this.renderer.prepareNode(model);
+                return;
+            }
+            case 'Knife': {
+                const mesh = new Mesh(this.sceneMap.meshes[18]);
+                const texture = this.sceneMap.textures[18];
+                const model = new Knife(mesh, texture, this.knifeModel);
                 this.scene.addNode(model);
                 this.renderer.prepareNode(model);
                 return;

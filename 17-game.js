@@ -6,7 +6,8 @@ import { Camera } from './Camera.js';
 import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
 import { start_timer } from './Timer.js';
-import { Flashlight } from './Flashlight.js'
+import { Flashlight } from './Flashlight.js';
+import { Knife } from './Knife.js';
 import { Light } from './Light.js';
 
 import { FlashlightBuilder } from './FlashlightBuilder.js';
@@ -57,6 +58,7 @@ class App extends Application {
         this.renderer.prepare(this.scene);
 
         this.FlashlightBuilder.createModel("Flashlight");
+        this.FlashlightBuilder.createModel("Knife");
     }
 
     spawn(player){

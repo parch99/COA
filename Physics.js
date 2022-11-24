@@ -1,10 +1,13 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
 import { count, check } from './TImer.js'
 import { Flashlight } from './Flashlight.js'
+import { Knife } from './Knife.js'
 
 
 let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
+
+let knifePositionSet = false;
 export class Physics {
 
     constructor(scene) {
@@ -19,9 +22,10 @@ export class Physics {
                 vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
                 node.updateMatrix();
                 // After moving, check for collision with every other node.
-                if (!(node instanceof Flashlight)) {
+                if (!(node instanceof Flashlight) && !(node instanceof Knife)) {
                     this.scene.traverse(other => {
-                        if (node !== other && !(other instanceof Flashlight && node.hasFlashlight)) {
+                        if (node !== other && !(other instanceof Flashlight && node.hasFlashlight)
+                            && !(other instanceof Knife && node.hasKnife)) {
                             this.resolveCollision(node, other);
                             this.check2(node);
                         }
@@ -67,13 +71,11 @@ export class Physics {
 
     resolveCollision(a, b) {
         if(b instanceof Flashlight && !a.hasFlashlight) {
-            b.translation = [0.25, 0.84, -3.75]
-            b.scale = [2, 2, 2];
-            b.rotation[0] = 0.8;
-            b.rotation[2] = 1.58;
-            b.aabb.max = [0.1, 1, 0.1];
-            b.aabb.min = [-0.1, -1, -0.1];
-            b.updateMatrix();
+            this.randomizeFlashlightLocation(b)
+        }
+        if(b instanceof Knife && !a.hasKnife && !knifePositionSet) {
+            knifePositionSet = true;
+            this.randomizeKnifeLocation(b)
         }
         // Get global space AABBs.
         const aBox = this.getTransformedAABB(a);
@@ -87,10 +89,14 @@ export class Physics {
             APP.showHelper = 1;
             a.flashlight = b;
             return;
+        } else if (b instanceof Knife && !a.hasKnife) {
+            APP.showHelper = 2;
+            a.knife = b;
+            return;
         }
         APP.showHelper = 0;
 
-        if( b.aabb.max[0] == 0.1 ) { //coins
+        if( b.aabb.max[0] == 1.1 ) { //coins
             count();
             b.translation[1] = -4;
             b.updateMatrix();
@@ -202,7 +208,7 @@ export class Physics {
 
     randomizeCoins(){
         this.scene.traverse(node => {
-            if(node.aabb.max[0] == 0.1){
+            if(node.aabb.max[0] == 1.1){
                 let x = Math.floor(Math.random()*18);
                 let z = Math.floor(Math.random()*18);
                 let a = Math.floor(Math.random()*2);
@@ -223,6 +229,37 @@ export class Physics {
             }
             
         });
+    }
+    randomizeKnifeLocation(knife){
+        if(knife){
+            let x = Math.floor(Math.random()*4);
+            if(x == 0){
+                knife.translation = [3.5, 0, 14.3]
+            } else if (x == 1){
+                knife.translation = [7, 0, 6.5]
+            } else if (x == 2){
+                knife.translation = [-9.8, 0, -8.8]
+            } else {
+                knife.translation = [7, 1.5, -6]
+            }
+            knife.scale = [2, 2, 2];
+            knife.rotation[0] = 2;
+            knife.rotation[2] = 0;
+            knife.aabb.max = [0.25, 4, 0.25];
+            knife.aabb.min = [-0.25, -4, -0.25];
+            knife.updateMatrix();
+        }
+    }
+    randomizeFlashlightLocation(flashlight){
+        if(flashlight){
+            flashlight.translation = [0.25, 0.84, -3.75]
+            flashlight.scale = [1.5, 1.5, 1.5];
+            flashlight.rotation[0] = 0.8;
+            flashlight.rotation[2] = 1.58;
+            flashlight.aabb.max = [0.2, 1, 0.2];
+            flashlight.aabb.min = [-0.2, -1, -0.2];
+            flashlight.updateMatrix();
+        }
     }
 }
 

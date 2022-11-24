@@ -19,6 +19,7 @@ export class SceneBuilder {
                 return new Model(mesh, texture, spec);
             }
             case 'flashlight': return null;
+            case 'knife': return null;
             default: return new Node(spec);
         }
     }
