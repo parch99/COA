@@ -213,8 +213,8 @@ export class Physics {
                 let z = Math.floor(Math.random()*18);
                 let a = Math.floor(Math.random()*2);
                 let b = Math.floor(Math.random()*2);
-                if(a < 0.5) z = -z;
-                if (b > 0.5) x = -x;
+                if(a == 1) z = -z;
+                if (b == 2) x = -x;
                 node.translation[0] = x;
                 node.translation[2] = z;
                 node.translation[1] = 1;

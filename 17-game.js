@@ -46,7 +46,7 @@ class App extends Application {
         this.scene.traverse(node => {
             if (node instanceof Camera) {
                 this.camera = node;
-                //this.spawn(node);
+                //this.spawn(node); //random spawn
             }
         });
         this.scene.camera = this.camera;
@@ -101,12 +101,6 @@ class App extends Application {
 
 }
 
-//Press R to restart
-document.body.onkeyup = function(e) {
-    if (e.keyCode == 82) {
-        window.location.reload();
-    }
-}
 
 const canvas = document.querySelector('canvas');
 const app = new App(canvas);

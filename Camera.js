@@ -6,18 +6,20 @@ import { Physics } from './Physics.js'
 let running_and_breathing = new Audio('../../common/audio/running_and_breathingBoosted.opus');
 let running_and_breathingSpeedUp = new Audio('../../common/audio/running_and_breathingSpeedUp1.opus');
 
+let active = false;
+
 export class Camera extends Node {
 
     constructor(options) {
         super(options);
         Utils.init(this, this.constructor.defaults, options);
-
         this.projection = mat4.create();
         this.updateProjection();
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
-        //this.translation[1] = 5
+        this.mousedown = this.onMouseDown.bind(this);
+        //this.translation[1] = 6
         this.keys = {};
     }
 
@@ -111,24 +113,33 @@ export class Camera extends Node {
             }
 
         }
+        if(this.hasKnife && active){
+            active = false;
+            this.knife.stabbed = true;
+            c.knife.stab();
+        }
 
         const len = vec3.len(c.velocity);
         if (len > c.maxSpeed) {
             vec3.scale(c.velocity, c.velocity, c.maxSpeed / len);
         }
     }
-
+    
     enable() {
         document.addEventListener('pointermove', this.pointermoveHandler);
         document.addEventListener('keydown', this.keydownHandler);
         document.addEventListener('keyup', this.keyupHandler);
+        document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+        });
+        document.addEventListener("mousedown", this.onMouseDown);
     }
 
     disable() {
         document.removeEventListener('pointermove', this.pointermoveHandler);
         document.removeEventListener('keydown', this.keydownHandler);
         document.removeEventListener('keyup', this.keyupHandler);
-
+        document.removeEventListener('mousedown', this.onMouseDown);
         for (const key in this.keys) {
             this.keys[key] = false;
         }
@@ -162,7 +173,11 @@ export class Camera extends Node {
     keyupHandler(e) {
         this.keys[e.code] = false;
     }
-
+    onMouseDown(e){
+        if (e.which === 3 || e.button === 2){
+            active = true;
+        }
+    }
     getFlashlight(flashlight) {
         const c = this;
         this.hasFlashlight = true;

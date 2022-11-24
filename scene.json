@@ -704,8 +704,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [-1, 0.4, -12],
       "rotation": [0, 0, 0],
@@ -728,8 +728,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [-11, 0.4, -13],
       "rotation": [0, 0, 0],
@@ -764,8 +764,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [11, 0.4, -13],
       "rotation": [0, 0, 0],
@@ -788,8 +788,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [-1, 0.4, 12],
       "rotation": [0, 0, 0],
@@ -812,8 +812,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [-11, 0.4, 13],
       "rotation": [0, 0, 0],
@@ -848,8 +848,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [9, 0.4, 13.5],
       "rotation": [0, 0, 0],
@@ -860,8 +860,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [7, 0.4, 13.5],
       "rotation": [0, 0, 0],
@@ -872,8 +872,8 @@
       "mesh": 13,
       "texture": 12,
       "aabb": {
-        "min": [-0.25, -1, -0.5],
-        "max": [0.25, 1, 0.5]
+        "min": [-0.25, -2, -0.5],
+        "max": [0.25, 2, 0.5]
       },
       "translation": [11, 0.4, 13.5],
       "rotation": [0, 0, 0],
@@ -1070,7 +1070,7 @@
     {
       "type": "model",
       "mesh": 10,
-      "texture": 19,
+      "texture": 1,
       "aabb": {
         "min": [-1, -1, -1],
         "max": [0.75, 1, 1]
@@ -1081,7 +1081,7 @@
   ],
   "textures": [
     "../../common/images/crate-diffuse.png",
-    "../../common/images/grass.png",
+    "../../common/images/door.jpg",
     "../../common/images/floorStone.png",
     "../../common/images/WallTile.jpg",
     "../../common/images/bin.avif",
@@ -1098,12 +1098,11 @@
     "../../common/images/toiletWblood3.jpg",
     "../../common/images/police2.jpeg",
     "../../common/images/table1.jpeg",
-    "../../common/images/knife.avif",
-    "../../common/images/door.jpg"
+    "../../common/images/knife.avif"
   ],
   "meshes": [
     "../../common/models/cube.json",
-    "../../common/models/pyramid.json",
+    "../../common/models/prisondoor.json",
     "../../common/models/floor.json",
     "../../common/models/chairO.json",
     "../../common/models/cube2.json",
