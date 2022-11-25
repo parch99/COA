@@ -164,7 +164,7 @@ export class Physics {
     }
     //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
     end(a, b){
-        if(this.checkDistance(a,b) && check() === true && !game_finished){
+        if(this.checkDistance(a,b) && check() && !game_finished){
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
             this.scene.traverse(door => {
                 if(door.aabb.max[0] == 0.75 && !game_finished){

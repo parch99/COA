@@ -37,19 +37,21 @@ export function count() {
     document.getElementById("coins").innerHTML = coinsLeft;
     coin_collect.volume = 0.7;
     coin_collect.play();
-    if(counter == 10)
-        document.getElementById("text").innerHTML = "You can bribe the officer now";
+    
+    //if(counter == 10)
+        //document.getElementById("text").innerHTML = "You can bribe the officer now";
     
 }
 
 export function check() {
 
-    if(counter == 10) {
+    if(counter >= 10) {
         return true;
     }else{
         document.getElementById("warn").innerHTML = '<span class="fs40">Hah Im not that cheap!</span>';
         setTimeout(function() {
             document.getElementById("warn").innerHTML = "";
         }, 3000);
+        return false;
     }
 }
