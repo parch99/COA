@@ -42,8 +42,6 @@ export function count() {
 export function check() {
 
     if(counter == 10) {
-        location.href = 'win.html';
-        document.getElementById("warn").innerHTML = '<span class="fs40">THANK YOU, YOU CAN NOW ESCAPE!</span>';
         return true;
     }else{
         document.getElementById("warn").innerHTML = '<span class="fs40">More coins than that inmate!</span>';
@@ -51,5 +49,4 @@ export function check() {
             document.getElementById("warn").innerHTML = "";
         }, 3000);
     }
-    
 }

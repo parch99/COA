@@ -19,7 +19,7 @@ export class Camera extends Node {
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
         this.mousedown = this.onMouseDown.bind(this);
-        //this.translation[1] = 6
+        //this.translation[1] = 5
         this.keys = {};
     }
 

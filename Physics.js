@@ -8,6 +8,8 @@ let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
 
 let knifePositionSet = false;
+let game_finished = false;
+
 export class Physics {
 
     constructor(scene) {
@@ -102,7 +104,8 @@ export class Physics {
             b.updateMatrix();
         }
         if( b.aabb.max[0] == 0.4 ) { //officer
-            check();
+            //check();
+            this.check3(a, b)
         }
         
         // Move node A minimally to avoid collision.
@@ -160,17 +163,23 @@ export class Physics {
         });
     }
 //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
-    check3(a){
-        this.scene.traverse(b => {
-            if(b.aabb.max[0] == 0.75){
-                if(this.checkDistance(a,b) && check() === true){
+    check3(a, b){
+        if(this.checkDistance(a,b) && check() === true && !game_finished){
+            document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
+            this.scene.traverse(door => {
+                if(door.aabb.max[0] == 0.75 && !game_finished){
+                    console.log(door);
                     door_open.volume = 0.5;
                     door_open.play();
-                    b.translation[0] = -1.75;
-                    b.updateMatrix();
-                };
-            }
-        });
+                    door.translation[0] -= 1.75;
+                    door.updateMatrix();
+                    game_finished = true;
+                }
+            });
+            setTimeout(function() {
+                location.href = 'win.html';
+            }, 7000);
+        };
     }
 
 
