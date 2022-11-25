@@ -7,6 +7,7 @@ import { Knife } from './Knife.js'
 let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
 
+let doorIsOpen = false;
 let knifePositionSet = false;
 let game_finished = false;
 
@@ -29,7 +30,9 @@ export class Physics {
                         if (node !== other && !(other instanceof Flashlight && node.hasFlashlight)
                             && !(other instanceof Knife && node.hasKnife)) {
                             this.resolveCollision(node, other);
-                            this.check2(node);
+                            if(other.aabb.max[0] == 0.7 && !doorIsOpen){
+                                this.openDoor(node, other);
+                            }
                         }
                     });
                 }
@@ -104,8 +107,7 @@ export class Physics {
             b.updateMatrix();
         }
         if( b.aabb.max[0] == 0.4 ) { //officer
-            //check();
-            this.check3(a, b)
+            this.end(a, b)
         }
         
         // Move node A minimally to avoid collision.
@@ -144,26 +146,24 @@ export class Physics {
         a.updateMatrix();
     }
 
-    check2(a){
-        this.scene.traverse(b => {
-            if(b.aabb.max[0] == 0.7){
-                if(this.checkDistance(a,b)){
-                    door_open.volume = 0.5;
-                    door_open.play();
-                    b.translation[0] = -1.75;
-                    b.updateMatrix();
-                    setTimeout(function() {
-                        door_close.volume = 0.3;
-                        door_close.play();
-                        b.translation[0] = 0;
-                        b.updateMatrix();
-                    }, 5000);
-                };
-            }
-        });
+    openDoor(a, b){   
+        if(this.checkDistance(a,b)){
+            door_open.volume = 0.5;
+            door_open.play();
+            b.translation[0] = -1.75;
+            b.updateMatrix();
+            doorIsOpen = true;
+            setTimeout(function() {
+                door_close.volume = 0.3;
+                door_close.play();
+                b.translation[0] = 0;
+                b.updateMatrix();
+                doorIsOpen = false;
+            }, 5000);
+        };
     }
-//OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
-    check3(a, b){
+    //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
+    end(a, b){
         if(this.checkDistance(a,b) && check() === true && !game_finished){
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
             this.scene.traverse(door => {

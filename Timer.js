@@ -17,6 +17,9 @@ export function start_timer() {
             let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             document.getElementById("timer").innerHTML = minutes + ":" + ((seconds <= 9) ? "0" + seconds : seconds);
 
+            if(minutes == 0 && seconds <= 59){
+                document.getElementById("timer").style.color = "red";
+            }
             if (timeLeft < 0) {
                 clearInterval(interval);
                 document.getElementById("timer").innerHTML = "Time's up";
@@ -35,7 +38,7 @@ export function count() {
     coin_collect.volume = 0.7;
     coin_collect.play();
     if(counter == 10)
-        document.getElementById("text").innerHTML = "Bribe the officer!";
+        document.getElementById("text").innerHTML = "You can bribe the officer now";
     
 }
 
@@ -44,7 +47,7 @@ export function check() {
     if(counter == 10) {
         return true;
     }else{
-        document.getElementById("warn").innerHTML = '<span class="fs40">More coins than that inmate!</span>';
+        document.getElementById("warn").innerHTML = '<span class="fs40">Hah Im not that cheap!</span>';
         setTimeout(function() {
             document.getElementById("warn").innerHTML = "";
         }, 3000);
