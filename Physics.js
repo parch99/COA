@@ -188,7 +188,7 @@ export class Physics {
     end2(a, b){
         if(this.checkDistance(a,b) && !game_finished && policemenIsAlive && a.hasKnife && a.knife.stabbed){
             let chance = Math.floor((Math.random() * 100) + 1);
-            if(chance <= 71){
+            if(chance <= 50){
                 b.translation = [18, 0.2, 19.3]
                 b.rotation[2] = -1.6;
                 b.updateMatrix();
