@@ -50,13 +50,13 @@ export function check() {
     }else if(delay){
         let x = Math.floor(Math.random()*2);
         if(x == 0 && counter < 5){
-            document.getElementById("warn").innerHTML = '<span class="fs40">' + counter +'? HA I AM NOT THAT CHEAP!</span>';
+            document.getElementById("warn").innerHTML = '<span class="fs40">' + counter +'? Ha I am not that cheap!</span>';
         } else if(x == 1 && counter < 5){
-            document.getElementById("warn").innerHTML = '<span class="fs40">GET OUT OF HERE!</span>';
+            document.getElementById("warn").innerHTML = '<span class="fs40">Get out of here!</span>';
         } else if (counter >= 8){
-            document.getElementById("warn").innerHTML = '<span class="fs40">NO DISCOUNTS SCUM</span>';
+            document.getElementById("warn").innerHTML = '<span class="fs40">No discounts sc#m</span>';
         } else {
-            document.getElementById("warn").innerHTML = '<span class="fs40">I WILL ARREST YOU!</span>';
+            document.getElementById("warn").innerHTML = '<span class="fs40">I will arest you!</span>';
         }
         delay = false;
         setTimeout(function() {
