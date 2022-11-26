@@ -21,12 +21,13 @@ class App extends Application {
         this.time = performance.now();
         this.startTime = this.time;
         this.aspect = 1;
-        this.showHelper = 0;
+        this.item = 0;
         await this.load('scene.json');
 
         this.light = new Light();
+        
         this.display();
-
+        
         this.canvas.addEventListener('click', e => this.canvas.requestPointerLock());
         document.addEventListener('pointerlockchange', e => {
             if (document.pointerLockElement === this.canvas) {

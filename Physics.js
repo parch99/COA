@@ -108,15 +108,15 @@ export class Physics {
         if (!isColliding) {
             return;
         } else if (b instanceof Flashlight && !a.hasFlashlight) {
-            APP.showHelper = 1;
+            APP.item = 1;
             a.flashlight = b;
             return;
         } else if (b instanceof Knife && !a.hasKnife) {
-            APP.showHelper = 2;
+            APP.item = 2;
             a.knife = b;
             return;
         }
-        APP.showHelper = 0;
+        APP.item = 0;
 
         if( b.aabb.max[0] == 1.1 ) { //coins
             count();
@@ -176,7 +176,7 @@ export class Physics {
                 b.translation[0] = 0;
                 b.updateMatrix();
                 doorIsOpen = false;
-            }, 5000);
+            }, 4000);
         };
     }
     //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED

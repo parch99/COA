@@ -21,7 +21,7 @@ export class Camera extends Node {
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
         this.mousedown = this.onMouseDown.bind(this);
-        //this.translation[1] = 5
+        //this.translation[1] = 14
         this.keys = {};
     }
 
@@ -108,9 +108,9 @@ export class Camera extends Node {
         }
 
         if (this.keys['KeyE'] ) {
-            if (APP.showHelper == 1 && this.flashlight){
+            if (APP.item == 1 && this.flashlight){
                 this.getFlashlight(this.flashlight);
-            } else if (APP.showHelper == 2 && this.knife){
+            } else if (APP.item == 2 && this.knife){
                 this.getKnife(this.knife);
             }
 
