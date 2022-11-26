@@ -1264,11 +1264,11 @@
     "../../common/images/police2.jpeg",
     "../../common/images/table1.jpeg",
     "../../common/images/knife.avif",
-    "../../common/images/jail.png",
+    "../../common/images/jail.avif",
     "../../common/images/opendoor.jpg",
-    "../../common/images/flashlight.png",
+    "../../common/images/flashlight.avif",
     "../../common/images/vending_machine.png",
-    "../../common/images/prisdoors.png"
+    "../../common/images/prisdoors.avif"
   ],
   "meshes": [
     "../../common/models/cube.json",
