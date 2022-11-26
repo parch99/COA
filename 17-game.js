@@ -25,6 +25,7 @@ class App extends Application {
         await this.load('scene.json');
 
         this.light = new Light();
+        this.display();
 
         this.canvas.addEventListener('click', e => this.canvas.requestPointerLock());
         document.addEventListener('pointerlockchange', e => {
@@ -59,6 +60,11 @@ class App extends Application {
 
         this.FlashlightBuilder.createModel("Flashlight");
         this.FlashlightBuilder.createModel("Knife");
+    }
+
+    display() {
+        var D = document.getElementById("div1");
+        D.style.display = "block";
     }
 
     spawn(player){
