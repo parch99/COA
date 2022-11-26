@@ -2,7 +2,7 @@
   "nodes": [
     {
       "type": "camera",
-      "translation": [0, 8.25, 0],
+      "translation": [0, 1.25, 0],
       "aabb": {
         "min": [-0.2, -0.5, -0.2],
         "max": [0.2, 0.5, 0.2]
@@ -20,7 +20,7 @@
         "min": [-1, -1, -1],
         "max": [1, 1, 1]
       },
-      "translation": [0, 15, 0],
+      "translation": [0, 5, 0],
       "scale": [20, 1, 20]
     },
     {
@@ -443,25 +443,25 @@
     },
     {
       "type": "model",
-      "mesh": 10,
-      "texture": 7,
+      "mesh": 20,
+      "texture": 23,
       "aabb": {
         "min": [-1, -1, -1],
         "max": [0.7, 1, 1]
       },
-      "scale": [1, 2.5, 0.25],
-      "translation": [0, 1, 8]
+      "scale": [1.2, 1.7, 1],
+      "translation": [0, 0, 5.95]
     },
     {
       "type": "model",
-      "mesh": 10,
-      "texture": 7,
+      "mesh": 20,
+      "texture": 23,
       "aabb": {
         "min": [-1, -1, -1],
         "max": [0.7, 1, 1]
       },
-      "scale": [1, 2.5, 0.25],
-      "translation": [0, 1, -8]
+      "scale": [1.2, 1.7, 1],
+      "translation": [0, 0, -9.4]
     },
     {
       "type": "model",
@@ -1144,8 +1144,104 @@
         "min": [-1, -2, -1],
         "max": [1, 2, 1]
       },
-      "translation": [4.5, 1.5, -6.75],
+      "translation": [4.6, 1.5, -6.85],
       "scale": [0.5, 1.5, 0.75]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [12.2, 0, -7.8],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, 2.2, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [-15.1, 0, -9.8],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, 1, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [12.2, 0, -15.8],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, 2.2, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [-15.1, 0, -17.8],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, 1, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [15, 0, 9.85],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, -2.2, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [-12.2, 0, 7.95],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, -1, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [15, 0, 17.85],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, -2.2, 0]
+    },
+    {
+      "type": "model",
+      "mesh": 20,
+      "texture": 23,
+      "aabb": {
+        "min": [-1, -2, -1],
+        "max": [1, 2, 1]
+      },
+      "translation": [-12.2, 0, 15.95],
+      "scale": [0.75, 1.7, 1],
+      "rotation": [0, -1, 0]
     }
   ],
   "textures": [
@@ -1171,7 +1267,8 @@
     "../../common/images/jail.png",
     "../../common/images/opendoor.jpg",
     "../../common/images/flashlight.png",
-    "../../common/images/vending_machine.png"
+    "../../common/images/vending_machine.png",
+    "../../common/images/prisdoors.png"
   ],
   "meshes": [
     "../../common/models/cube.json",
@@ -1193,6 +1290,7 @@
     "../../common/models/policeSit2.json",
     "../../common/models/table1.json",
     "../../common/models/knife.json",
-    "../../common/models/opendoor.json"
+    "../../common/models/opendoor.json",
+    "../../common/models/prisdoors.json"
   ]
 }
