@@ -213,12 +213,6 @@ export class Physics {
                     location.href = 'loss.html';
                 }, 5000);
             }
-            
-            /*
-            setTimeout(function() {
-                location.href = 'win.html';
-            }, 7000);
-            */
         };
     }
 
