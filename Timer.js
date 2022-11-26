@@ -3,6 +3,7 @@ let counter = 0;
 let coinsLeft = 10;
 let overall = 10;
 let coin_collect = new Audio('../../common/audio/coin_collect.mp3');
+let delay = true;
 export function start_timer() {
     if(active == true) {
         return;
@@ -44,13 +45,23 @@ export function count() {
 }
 
 export function check() {
-
     if(counter >= 10) {
         return true;
-    }else{
-        document.getElementById("warn").innerHTML = '<span class="fs40">Hah Im not that cheap!</span>';
+    }else if(delay){
+        let x = Math.floor(Math.random()*2);
+        if(x == 0 && counter < 5){
+            document.getElementById("warn").innerHTML = '<span class="fs40">' + counter +'? ha Im not that cheap!</span>';
+        } else if(x == 1 && counter < 5){
+            document.getElementById("warn").innerHTML = '<span class="fs40">get out of here!</span>';
+        } else if (counter >= 8){
+            document.getElementById("warn").innerHTML = '<span class="fs40">no discounts here</span>';
+        } else {
+            document.getElementById("warn").innerHTML = '<span class="fs40">full price only!</span>';
+        }
+        delay = false;
         setTimeout(function() {
             document.getElementById("warn").innerHTML = "";
+            delay = true;
         }, 3000);
         return false;
     }

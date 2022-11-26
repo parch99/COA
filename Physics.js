@@ -8,6 +8,7 @@ let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
 
 let doorIsOpen = false;
+let policemenIsAlive = true;
 let knifePositionSet = false;
 let game_finished = false;
 
@@ -32,6 +33,9 @@ export class Physics {
                             this.resolveCollision(node, other);
                             if(other.aabb.max[0] == 0.7 && !doorIsOpen){
                                 this.openDoor(node, other);
+                            }
+                            if(other.aabb.max[0] == 0.4 && policemenIsAlive){
+                                this.end2(node, other);
                             }
                         }
                     });
@@ -168,7 +172,6 @@ export class Physics {
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
             this.scene.traverse(door => {
                 if(door.aabb.max[0] == 0.75 && !game_finished){
-                    console.log(door);
                     door_open.volume = 0.5;
                     door_open.play();
                     door.translation[0] -= 1.75;
@@ -181,7 +184,43 @@ export class Physics {
             }, 7000);
         };
     }
-
+    //OPEN DOOR WHEN GUARD IS KILLED
+    end2(a, b){
+        if(this.checkDistance(a,b) && !game_finished && policemenIsAlive && a.hasKnife && a.knife.stabbed){
+            let chance = Math.floor((Math.random() * 100) + 1);
+            if(chance <= 71){
+                b.translation = [18, 0.2, 19.3]
+                b.rotation[2] = -1.6;
+                b.updateMatrix();
+                document.getElementById("warn").innerHTML = '<span class="fs40">Ahhh you $%@*&!</span>';
+                policemenIsAlive = false;
+                this.scene.traverse(door => {
+                    if(door.aabb.max[0] == 0.75 && !game_finished){
+                        door_open.volume = 0.5;
+                        door_open.play();
+                        door.translation[0] -= 1.75;
+                        door.updateMatrix();
+                        game_finished = true;
+                    }
+                });
+                setTimeout(function() {
+                    location.href = 'win.html';
+                }, 7000);
+            } else {
+                document.getElementById("warn2").innerHTML = '<span class="fs40">I got you now $%@*&!</span>';
+                game_finished = true;
+                setTimeout(function() {
+                    location.href = 'loss.html';
+                }, 5000);
+            }
+            
+            /*
+            setTimeout(function() {
+                location.href = 'win.html';
+            }, 7000);
+            */
+        };
+    }
 
     checkDistance(a, b){
         const aBox = this.getTransformedAABB(a);

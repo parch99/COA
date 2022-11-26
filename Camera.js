@@ -117,6 +117,8 @@ export class Camera extends Node {
             active = false;
             this.knife.stabbed = true;
             c.knife.stab();
+        } else if (this.hasKnife){
+            this.knife.stabbed = false;
         }
 
         const len = vec3.len(c.velocity);
