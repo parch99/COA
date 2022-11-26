@@ -21,7 +21,7 @@ export class FlashlightBuilder {
         switch (type) {
             case 'Flashlight': {
                 const mesh = new Mesh(this.sceneMap.meshes[15]);
-                const texture = this.sceneMap.textures[4];
+                const texture = this.sceneMap.textures[21];
                 const model = new Flashlight(mesh, texture, this.flashlightModel);
                 this.scene.addNode(model);
                 this.renderer.prepareNode(model);
