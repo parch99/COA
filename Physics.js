@@ -3,9 +3,13 @@ import { count, check } from './TImer.js'
 import { Flashlight } from './Flashlight.js'
 import { Knife } from './Knife.js'
 
-
 let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
+let slash_miss = new Audio('../../common/audio/slash_miss.mp3');
+let slash_object = new Audio('../../common/audio/slash_object.mp3');
+let critical_hit = new Audio('../../common/audio/critical_hit.mp3');
+let alarm = new Audio('../../common/audio/alarm.mp3');
+let alarm_police = new Audio('../../common/audio/alarm_police.mp3');
 
 let doorIsOpen = false;
 let policemenIsAlive = true;
@@ -92,6 +96,15 @@ export class Physics {
         
         // Check if there is collision.
         const isColliding = this.aabbIntersection(aBox, bBox);
+
+        if(a.hasKnife && a.knife.stabbed && isColliding){
+            slash_object.volume = 1;
+            slash_object.play();
+        } else if (a.hasKnife && a.knife.stabbed && !isColliding){
+            slash_miss.volume = 0.5;
+            slash_miss.play();
+        }
+
         if (!isColliding) {
             return;
         } else if (b instanceof Flashlight && !a.hasFlashlight) {
@@ -145,7 +158,7 @@ export class Physics {
             minDiff = diffb[2];
             minDirection = [0, 0, -minDiff];
         }
-
+        
         vec3.add(a.translation, a.translation, minDirection);
         a.updateMatrix();
     }
@@ -168,7 +181,7 @@ export class Physics {
     }
     //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
     end(a, b){
-        if(this.checkDistance(a,b) && check() && !game_finished){
+        if(this.checkDistance(a,b) && check(game_finished) && !game_finished){
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
             this.scene.traverse(door => {
                 if(door.aabb.max[0] == 0.75 && !game_finished){
@@ -189,6 +202,8 @@ export class Physics {
         if(this.checkDistance(a,b) && !game_finished && policemenIsAlive && a.hasKnife && a.knife.stabbed){
             let chance = Math.floor((Math.random() * 100) + 1);
             if(chance <= 50){
+                critical_hit.volume = 0.7;
+                critical_hit.play();
                 b.translation = [18, 0.2, 19.3]
                 b.rotation[2] = -1.6;
                 b.updateMatrix();
@@ -203,11 +218,15 @@ export class Physics {
                         game_finished = true;
                     }
                 });
+                alarm.volume = 0.7;
+                alarm.play();
                 setTimeout(function() {
                     location.href = 'win.html';
                 }, 7000);
             } else {
                 document.getElementById("warn2").innerHTML = '<span class="fs40">I got you now $%@*&!</span>';
+                alarm_police.volume = 0.7;
+                alarm_police.play();
                 game_finished = true;
                 setTimeout(function() {
                     location.href = 'loss.html';

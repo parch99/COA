@@ -5,6 +5,8 @@ import { Physics } from './Physics.js'
 
 let running_and_breathing = new Audio('../../common/audio/running_and_breathingBoosted.opus');
 let running_and_breathingSpeedUp = new Audio('../../common/audio/running_and_breathingSpeedUp1.opus');
+let pick_knife = new Audio('../../common/audio/pick_knife.mp3');
+let pick_flashlight = new Audio('../../common/audio/pick_flashlight.mp3');
 
 let active = false;
 
@@ -186,13 +188,8 @@ export class Camera extends Node {
         c.addChild(flashlight);
         flashlight.setCarryTranslation();
         flashlight.updateMatrix();
-        
-        for (var i = 0; i < this.APP.scene.nodes.length; i++) {
-            if (this.APP.scene.nodes[i] === flashlight) {
-                this.APP.scene.nodes.splice(i, 1);
-                break;
-            }
-        }
+        pick_flashlight.volume = 0.8;
+        pick_flashlight.play();
     }
     getKnife(knife) {
         const c = this;
@@ -200,13 +197,16 @@ export class Camera extends Node {
         c.addChild(knife);
         knife.setCarryTranslation();
         knife.updateMatrix();
-        console.log(c);
+        pick_knife.volume = 0.8;
+        pick_knife.play();
+        /*
         for (var i = 0; i < this.APP.scene.nodes.length; i++) {
             if (this.APP.scene.nodes[i] === knife) {
                 this.APP.scene.nodes.splice(i, 1);
                 break;
             }
         }
+        */
     }
 
 }

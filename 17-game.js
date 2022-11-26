@@ -10,7 +10,7 @@ import { Flashlight } from './Flashlight.js';
 import { Knife } from './Knife.js';
 import { Light } from './Light.js';
 
-import { FlashlightBuilder } from './FlashlightBuilder.js';
+import { ObjectBuilder } from './ObjectBuilder.js';
 
 class App extends Application {
     
@@ -41,7 +41,7 @@ class App extends Application {
         const scene = await new SceneLoader().loadScene(uri);
         const builder = new SceneBuilder(scene);
         this.scene = builder.build();
-        this.FlashlightBuilder = await new FlashlightBuilder().init(scene, this.scene, this.renderer);
+        this.ObjectBuilder = await new ObjectBuilder().init(scene, this.scene, this.renderer);
         this.camera = null;
         
         this.scene.traverse(node => {
@@ -58,8 +58,8 @@ class App extends Application {
         this.physics = new Physics(this.scene);
         this.renderer.prepare(this.scene);
 
-        this.FlashlightBuilder.createModel("Flashlight");
-        this.FlashlightBuilder.createModel("Knife");
+        this.ObjectBuilder.createModel("Flashlight");
+        this.ObjectBuilder.createModel("Knife");
     }
 
     display() {

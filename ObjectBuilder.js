@@ -1,7 +1,7 @@
 import { Flashlight } from './Flashlight.js';
 import { Knife } from './Knife.js';
 import { Mesh } from './Mesh.js';
-export class FlashlightBuilder {
+export class ObjectBuilder {
 
     async init(sceneMap, scene, renderer) {
         this.sceneMap = sceneMap;
