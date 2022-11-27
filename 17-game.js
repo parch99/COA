@@ -49,7 +49,7 @@ class App extends Application {
         this.scene.traverse(node => {
             if (node instanceof Camera) {
                 this.camera = node;
-                //this.spawn(node); //random spawn
+                this.spawn(node); //random spawn
             }
         });
         this.scene.camera = this.camera;

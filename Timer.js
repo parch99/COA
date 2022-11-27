@@ -9,7 +9,7 @@ export function start_timer() {
         return;
     } else {
         active = true;
-        let countDownDate = new Date(Date.now() + (5 * 60 * 1000));
+        let countDownDate = new Date(Date.now() + (2.5 * 60 * 1000));
 
         let interval = setInterval(function() {
             let now = new Date(Date.now());
@@ -44,12 +44,18 @@ export function count() {
     
 }
 
+export function giveCoins(){
+    counter = 0;
+    document.getElementById("counter").innerHTML = counter;
+    delay = false;
+}
+
 export function check() {
     if(counter >= 10) {
         return true;
     }else if(delay){
         let x = Math.floor(Math.random()*2);
-        if(x == 0 && counter < 5){
+        if(x == 0 && counter < 5 && counter != 0){
             document.getElementById("warn").innerHTML = '<span class="fs40">' + counter +'? Ha I am not that cheap!</span>';
         } else if(x == 1 && counter < 5){
             document.getElementById("warn").innerHTML = '<span class="fs40">Get out of here!</span>';

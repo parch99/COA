@@ -206,7 +206,6 @@ export class Camera extends Node {
         const c = this;
         this.hasKey = true;
         c.addChild(key);
-        console.log("aaaaaaaadadw");
         key.setHoldTranslation();
         key.updateMatrix();
         pick_flashlight.volume = 0.8;

@@ -1,5 +1,5 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
-import { count, check } from './TImer.js';
+import { count, check, giveCoins } from './TImer.js';
 import { Flashlight } from './Flashlight.js';
 import { Knife } from './Knife.js';
 import { Key } from './Key.js';
@@ -196,6 +196,7 @@ export class Physics {
     end(a, b){
         if(this.checkDistance(a,b) && check() && !game_finished){
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
+            giveCoins();
             this.scene.traverse(door => {
                 if(door.aabb.max[0] == 0.75 && !game_finished){
                     door_open.volume = 0.5;
