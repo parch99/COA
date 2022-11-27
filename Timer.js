@@ -44,7 +44,7 @@ export function count() {
     
 }
 
-export function check(game_finished) {
+export function check() {
     if(counter >= 10) {
         return true;
     }else if(delay){

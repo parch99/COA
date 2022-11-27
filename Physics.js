@@ -207,7 +207,7 @@ export class Physics {
                 b.translation = [18, 0.2, 19.3]
                 b.rotation[2] = -1.6;
                 b.updateMatrix();
-                document.getElementById("warn").innerHTML = '<span class="fs40">Ahhh you $%@*&!</span>';
+                document.getElementById("warn").innerHTML = '<span class="fs40">Ahhh you RAT!</span>';
                 policemenIsAlive = false;
                 this.scene.traverse(door => {
                     if(door.aabb.max[0] == 0.75 && !game_finished){
