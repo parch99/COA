@@ -10,7 +10,7 @@ export class Knife extends Model {
     }
 
     setCarryTranslation() {
-        this.translation = vec3.set(vec3.create(), 0.15, -0.1, -0.2);
+        this.translation = vec3.set(vec3.create(), 0.19, -0.125, -0.2);
         this.scale = vec3.set(vec3.create(), 1,1,1);
         this.rotation = vec3.set(vec3.create(), 1, 0, -1);
     }
@@ -23,6 +23,7 @@ export class Knife extends Model {
         setTimeout(function() {
             knife.translation[0] += 0.1
             knife.translation[2] += 0.01;
+            
             knife.updateMatrix();
         }, 150);
     }

@@ -98,7 +98,7 @@ export class Physics {
         const isColliding = this.aabbIntersection(aBox, bBox);
 
         if(a.hasKnife && a.knife.stabbed && isColliding){
-            slash_object.volume = 1;
+            slash_object.volume = 0.7;
             slash_object.play();
         } else if (a.hasKnife && a.knife.stabbed && !isColliding){
             slash_miss.volume = 0.5;
@@ -181,7 +181,7 @@ export class Physics {
     }
     //OPEN DOOR WHEN ALL 10 COINS ARE COLLECTED
     end(a, b){
-        if(this.checkDistance(a,b) && check(game_finished) && !game_finished){
+        if(this.checkDistance(a,b) && check() && !game_finished){
             document.getElementById("warn").innerHTML = '<span class="fs40">A deal is a deal</span>';
             this.scene.traverse(door => {
                 if(door.aabb.max[0] == 0.75 && !game_finished){

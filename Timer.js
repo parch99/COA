@@ -47,7 +47,7 @@ export function count() {
 export function check(game_finished) {
     if(counter >= 10) {
         return true;
-    }else if(delay && !game_finished){
+    }else if(delay){
         let x = Math.floor(Math.random()*2);
         if(x == 0 && counter < 5){
             document.getElementById("warn").innerHTML = '<span class="fs40">' + counter +'? Ha I am not that cheap!</span>';
