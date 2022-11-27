@@ -3,6 +3,7 @@ body, html {
     padding: 0;
     background-image: url("../common/images/bgsc.jpg");
     background-position: center;
+    background-size: 100%;
 }
 
 .fullscreen {
