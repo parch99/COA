@@ -1,7 +1,8 @@
 import { vec3, mat4 } from './lib/gl-matrix-module.js';
-import { count, check } from './TImer.js'
-import { Flashlight } from './Flashlight.js'
-import { Knife } from './Knife.js'
+import { count, check } from './TImer.js';
+import { Flashlight } from './Flashlight.js';
+import { Knife } from './Knife.js';
+import { Key } from './Key.js';
 
 let door_open = new Audio('../../common/audio/door_open.mp3');
 let door_close = new Audio('../../common/audio/door_close.mp3');
@@ -14,7 +15,9 @@ let alarm_police = new Audio('../../common/audio/alarm_police.mp3');
 let doorIsOpen = false;
 let policemenIsAlive = true;
 let knifePositionSet = false;
+let keyPositionSet = false;
 let game_finished = false;
+let escapedInTime = false;
 
 export class Physics {
 
@@ -33,7 +36,7 @@ export class Physics {
                 if (!(node instanceof Flashlight) && !(node instanceof Knife)) {
                     this.scene.traverse(other => {
                         if (node !== other && !(other instanceof Flashlight && node.hasFlashlight)
-                            && !(other instanceof Knife && node.hasKnife)) {
+                            && !(other instanceof Knife && node.hasKnife) && !(other instanceof Key && node.hasKey)) {
                             this.resolveCollision(node, other);
                             if(other.aabb.max[0] == 0.7 && !doorIsOpen){
                                 this.openDoor(node, other);
@@ -41,6 +44,7 @@ export class Physics {
                             if(other.aabb.max[0] == 0.4 && policemenIsAlive){
                                 this.end2(node, other);
                             }
+                            this.openFinalDoor(node)
                         }
                     });
                 }
@@ -90,6 +94,10 @@ export class Physics {
             knifePositionSet = true;
             this.randomizeKnifeLocation(b)
         }
+        if(b instanceof Key && !a.hasKey && !keyPositionSet){
+            keyPositionSet = true;
+            this.setKeyStartPosition(b)
+        }
         // Get global space AABBs.
         const aBox = this.getTransformedAABB(a);
         const bBox = this.getTransformedAABB(b);
@@ -114,6 +122,11 @@ export class Physics {
         } else if (b instanceof Knife && !a.hasKnife) {
             APP.item = 2;
             a.knife = b;
+            return;
+        } else if (b instanceof Key && !a.hasKey) {
+            APP.item = 3;
+            a.key = b;
+            a.key.scale = [0.1, 0.1, 0.1]
             return;
         }
         APP.item = 0;
@@ -209,20 +222,17 @@ export class Physics {
                 b.updateMatrix();
                 document.getElementById("warn").innerHTML = '<span class="fs40">Ahhh you RAT!</span>';
                 policemenIsAlive = false;
-                this.scene.traverse(door => {
-                    if(door.aabb.max[0] == 0.75 && !game_finished){
-                        door_open.volume = 0.5;
-                        door_open.play();
-                        door.translation[0] -= 1.75;
-                        door.updateMatrix();
-                        game_finished = true;
-                    }
-                });
+
+                this.dropKey()
                 alarm.volume = 0.7;
                 alarm.play();
                 setTimeout(function() {
-                    location.href = 'win.html';
-                }, 7000);
+                    if(!game_finished && !escapedInTime){
+                        location.href = 'loss.html';
+                    } else {
+                        location.href = 'win.html'
+                    }
+                }, 8000);
             } else {
                 document.getElementById("warn2").innerHTML = '<span class="fs40">I got you now $%@*&!</span>';
                 alarm_police.volume = 0.7;
@@ -320,6 +330,36 @@ export class Physics {
             flashlight.aabb.max = [0.2, 1, 0.2];
             flashlight.aabb.min = [-0.2, -1, -0.2];
             flashlight.updateMatrix();
+        }
+    }
+    setKeyStartPosition(b){
+        b.translation= [15.5, -8, 19.7];
+        b.name = "Key";
+        b.scale = [0.03, 0.03, 0.03];
+        b.aabb.max = [0.1, 55, 0.1];
+        b.aabb.min = [-0.1, -55, -0.1];
+        b.updateMatrix();
+    }
+    dropKey(){
+        this.scene.traverse(key => {
+            if(key.name == "Key"){
+                key.translation = [16, 0, 19.7],
+                key.updateMatrix();
+            }
+        });
+    }
+    openFinalDoor(a){
+        if(a.hasKey){
+            this.scene.traverse(door => {
+                if(door.aabb.max[0] == 0.75 && !game_finished){
+                    door_open.volume = 0.5;
+                    door_open.play();
+                    door.translation[0] -= 1.75;
+                    door.updateMatrix();
+                    game_finished = true;
+                    escapedInTime = true;
+                }
+            });
         }
     }
 }

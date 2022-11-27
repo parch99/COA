@@ -112,6 +112,8 @@ export class Camera extends Node {
                 this.getFlashlight(this.flashlight);
             } else if (APP.item == 2 && this.knife){
                 this.getKnife(this.knife);
+            } else if (APP.item == 3 && this.key){
+                this.getKey(this.key);
             }
 
         }
@@ -178,7 +180,7 @@ export class Camera extends Node {
         this.keys[e.code] = false;
     }
     onMouseDown(e){
-        if (e.which === 3 || e.button === 2){
+        if (e.which === 3 || e.button === 2){//IE, Opera e.button === 2
             active = true;
         }
     }
@@ -199,14 +201,16 @@ export class Camera extends Node {
         knife.updateMatrix();
         pick_knife.volume = 0.8;
         pick_knife.play();
-        /*
-        for (var i = 0; i < this.APP.scene.nodes.length; i++) {
-            if (this.APP.scene.nodes[i] === knife) {
-                this.APP.scene.nodes.splice(i, 1);
-                break;
-            }
-        }
-        */
+    }
+    getKey(key) {
+        const c = this;
+        this.hasKey = true;
+        c.addChild(key);
+        console.log("aaaaaaaadadw");
+        key.setHoldTranslation();
+        key.updateMatrix();
+        pick_flashlight.volume = 0.8;
+        pick_flashlight.play();
     }
 
 }

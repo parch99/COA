@@ -20,6 +20,7 @@ export class SceneBuilder {
             }
             case 'flashlight': return null;
             case 'knife': return null;
+            case 'key': return null;
             default: return new Node(spec);
         }
     }

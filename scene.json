@@ -1532,7 +1532,8 @@
     "../../common/images/flashlight.avif",
     "../../common/images/vending_machine.png",
     "../../common/images/prisdoors.avif",
-    "../../common/images/light.jpg"
+    "../../common/images/light.jpg",
+    "../../common/images/key.avif"
   ],
   "meshes": [
     "../../common/models/cube.json",
@@ -1555,6 +1556,7 @@
     "../../common/models/table1.json",
     "../../common/models/knife.json",
     "../../common/models/opendoor.json",
-    "../../common/models/prisdoors.json"
+    "../../common/models/prisdoors.json",
+    "../../common/models/key.json"
   ]
 }

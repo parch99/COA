@@ -9,6 +9,7 @@ import { start_timer } from './Timer.js';
 import { Flashlight } from './Flashlight.js';
 import { Knife } from './Knife.js';
 import { Light } from './Light.js';
+import { Key } from './Key.js';
 
 import { ObjectBuilder } from './ObjectBuilder.js';
 
@@ -61,6 +62,7 @@ class App extends Application {
 
         this.ObjectBuilder.createModel("Flashlight");
         this.ObjectBuilder.createModel("Knife");
+        this.ObjectBuilder.createModel("Key");
     }
 
     display() {
